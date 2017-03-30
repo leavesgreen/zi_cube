@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ static_url("css/bootstrap.min.css") }}" rel="stylesheet">
+    <!-- jQWidgets CSS -->
+    <link href=" {{ static_url("jqwidgets/styles/jqx.base.css") }} " rel="stylesheet">
+    <link href=" {{ static_url("jqwidgets/styles/jqx.bootstrap.css") }} " rel="stylesheet">
+
+
+
+</head>
+<body>
+ <body style="text-align:left;">
+
+    <div class="container-fluid">
+
+      <div class="row" style="margin-top:20px">
+        <div class="col-md-4">
+            <div id='jqxTree'>
+            </div>
+            <div id='jqxMenu'>
+            <ul>
+                <li>新建</li>
+                <li>改名</li>
+                <li>上传</li>
+                <li>删除</li>
+            </ul>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div id='content_files' style='display:none'>
+                <input id='hd_sel_path' type='hidden' value = ''/>
+                <br/>
+                <!--删除暂未提供-->
+                <div>
+                    <ul id='content_fils_list'>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+      </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <form action="#" method="post">
+                {{ xsrf_form_html() }}
+            </form>
+        </div>
+      </div>
+        <div class="col-sm-12" style='display:none' >
+            <iframe id='frm_file_download' src="#"></iframe>      
+        </div>
+    </div>
+    <div id='content_oper_input' style='display:none; position:absolute; width:350px;z-index:200;background-color:#fff6d2;border:1px solid #aaa' >
+        <input id='txt_input' type='text' value = '' style='display:inline'/>
+        <input id='hd_opr' type='hidden' value = '' style='display:inline'/>
+        <input id='hd_prtid' type='hidden' value = '' style='display:inline'/>
+        <input id='btn_opr_confirm' type='button' value = '确定' style='display:inline' onclick='do_opr()'/>
+        <input id='btn_close1' type='button' value = '关闭' onclick='closeDiv()'/>
+    </div>
+    <div id='content_oper_fileupload' style='display:none;position:absolute; width:350px;z-index:201;background-color:#fff6d2;border:1px solid #aaa;' >
+        <input id='file_upload' name='file_upload'  type='file' style='display:inline'/>
+        <input id='btn_upload' type='button' value = '上传' style='display:inline'/>
+        <input id='btn_close2' type='button' value = '关闭' onclick='closeDiv()'/>
+        <span id='content_oper_fileupload_progress'></span>
+
+    </div>
+
+
+
+
+
+
+    <!-- ================================================== -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+
+
+    
+
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ static_url("js/bootstrap.min.js") }} "></script>
+    <!-- jQWidgets core JavaScript -->
+    <script src="{{ static_url("jqwidgets/jqxcore.js") }} "></script>
+    <!-- ================================================== -->
+    <script src="{{ static_url("jqwidgets/jqxdata.js") }} "></script>
+    <script src="{{ static_url("jqwidgets/jqxbuttons.js") }} "></script>
+    <script src="{{ static_url("jqwidgets/jqxscrollbar.js") }} "></script>
+
+    <script src="{{ static_url("jqwidgets/jqxdata.js") }} "></script>
+    <script src="{{ static_url("jqwidgets/jqxcore.js") }} "></script>
+
+    <script src="{{ static_url("jqwidgets/jqxpanel.js") }} "></script>
+    <script src="{{ static_url("jqwidgets/jqxtree.js") }} "></script>
+    <script src="{{ static_url("jqwidgets/jqxmenu.js") }} "></script>
+
+    <script src="{{ static_url("upload/js/vendor/jquery.ui.widget.js") }} "></script>
+    <script src="{{ static_url("upload/js/jquery.iframe-transport.js") }} "></script>
+    <script src="{{ static_url("upload/js/jquery.fileupload.js") }} "></script>
+    
+
+    <script src="{{ static_url("jqwidgets/globalization/globalize.js") }} "></script>
+
+
+
+
+
+
+
+    <!-- Add addition JavaScript files here -->
+    <script >
+    var DATA2 = [];
+    var NEWX= 0;
+    var NEWY=0;
+        $(document).ready(function () {
+            // your JavaScript code here.
+                var data = {{ alllist }};
+
+                DATA2 = data;
+
+                for (var i=0;i<DATA2.length;i++){
+                    if(DATA2[i]['ilevel']<=1){
+                        DATA2[i]['text']='<b>'+DATA2[i]['text']+'</b>';
+                    }
+                };
+                // prepare the data
+                var source =
+                {
+                    datatype: "json",
+                    datafields: [
+                        { name: 'id' },
+                        { name: 'parentid' },
+                        { name: 'text' },
+                        { name: 'value' }
+                    ],
+                    id: 'id',
+                    localdata: DATA2
+                };
+                // create data adapter.
+                var dataAdapter = new $.jqx.dataAdapter(source);
+                // perform Data Binding.
+                dataAdapter.dataBind();
+                // get the tree items. The first parameter is the item's id. The second parameter is the parent item's id. The 'items' parameter represents 
+                // the sub items collection name. Each jqxTree item has a 'label' property, but in the JSON data, we have a 'text' field. The last parameter 
+                // specifies the mapping between the 'text' and 'label' fields.  
+                var records = dataAdapter.getRecordsHierarchy('id', 'parentid', 'items', [{ name: 'text', map: 'label'}]);
+                $('#jqxTree').jqxTree({ source: records});
+                
+                $("#jqxMenu").on('itemclick',menuItemClickFunc);
+
+
+                bindContentMenu();
+
+                // disable the default browser's context menu.
+                $(document).on('contextmenu', function (e) {
+                    if ($(e.target).parents('.jqx-tree').length > 0) {
+                        return false;
+                    }
+                    return true;
+                });
+
+                //$('#jqxTree').jqxTree('expandAll');
+
+
+                
+
+
+
+        });
+    </script>
+</body>
+</html>
+
+<script>
+var contextMenu = $("#jqxMenu").jqxMenu({ width: '50px',  height: '120px', autoOpenPopup: false, mode: 'popup' });
+//var clickedItem = null;
+
+var attachContextMenu = function () {
+    // open the context menu when the user presses the mouse right button.
+    $("#jqxTree li").on('mousedown', function (event) {
+        var target = $(event.target).parents('li:first')[0];
+        var rightClick = isRightClick(event);
+        if (rightClick && target != null) {
+            $("#jqxTree").jqxTree('selectItem', target);
+            var scrollTop = $(window).scrollTop();
+            var scrollLeft = $(window).scrollLeft();
+            NEWX = parseInt(event.clientX) + 5 + scrollLeft;
+            NEWY = parseInt(event.clientY) + 5 + scrollTop;
+
+            contextMenu.jqxMenu('open', NEWX, NEWY);
+            return false;
+        }
+    });
+}
+
+var menuSelectFunc=function (event){
+    var args = event.args;
+    var item = $('#jqxTree').jqxTree('getItem', args.element);
+    if (item.value != $('#hd_sel_path').val()){
+        $('#hd_sel_path').val(item.value);
+        getfilelist(item.value);
+    }
+}
+
+var menuItemClickFunc= function (event) {
+    
+    var item = $.trim($(event.args).text());
+    var selectedItem = $('#jqxTree').jqxTree('selectedItem');
+    
+    if (selectedItem.value != $('#hd_sel_path').val()){
+        $('#hd_sel_path').val(selectedItem.value);
+        getfilelist(selectedItem.value);
+    }
+
+    var past_txt = getpasttext(selectedItem.value);
+    var xpth =$('#hd_sel_path').val();
+    
+    
+    //alert(xpth);
+
+
+    switch (item) {
+        case "新建":
+            $("#content_oper_input").css("left",NEWX+30+"px").css("top",NEWY+20+"px");  
+            $('#content_oper_input').show();
+            $('#txt_input').show();
+            $('#txt_input').val('');
+            $('#hd_opr').val('opr_new_fd');
+            
+            break;
+        case "改名":
+
+            if (xpth=='/'){
+                return 0;
+            }
+
+            $("#content_oper_input").css("left",NEWX+30+"px").css("top",NEWY+20+"px");  
+            $('#content_oper_input').show();
+            $('#txt_input').show();
+            $('#txt_input').val(past_txt);
+            $('#hd_opr').val('opr_rename_fd');
+
+
+
+            break;
+        case "上传":
+            $("#content_oper_fileupload").css("left",NEWX+30+"px").css("top",NEWY+20+"px");  
+            $('#content_oper_fileupload').show();
+            $('#hd_opr').val('opr_upload_file');
+            showFileUpload();
+
+            break;
+        case "删除":
+            //$('#content_oper_input').show();
+            //$('#txt_input').show();
+            $('#hd_opr').val('opr_del_fd');
+
+            if (xpth=='/'){
+                return 0;
+            }
+            //判断如果有文件,或子文件夹,不删除;
+            if (check_hasfile_or_childs(xpth)){
+                alert('文件夹不为空,不能删除!');
+                return 0;
+            }
+
+
+            do_opr();
+            break;
+    }
+}
+
+function bindContentMenu(){
+
+    attachContextMenu();
+
+    $('#jqxTree').on('select',menuSelectFunc);
+
+}
+
+
+function isRightClick(event) {
+    var rightclick;
+    if (!event) var event = window.event;
+    if (event.which) rightclick = (event.which == 3);
+    else if (event.button) rightclick = (event.button == 2);
+    return rightclick;
+}
+
+
+function showFileUpload(){
+    $("#file_upload").fileupload({
+        autoUpload: false,
+        url: '/fup/',
+        singleFileUploads:true,
+        formData:{'_xsrf':getCookie("_xsrf"),'folder':$('#hd_sel_path').val()},
+        add: function (e, data) {
+            //formData['folder'] =$('#hd_sel_path').val();
+            $('#btn_upload').click(
+                function(){
+                    data.submit();
+                    //how to show the name;
+                }
+            )
+        },
+        progressall: function (e, data) {
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+            $('#content_oper_fileupload_progress').text('正在上传.....'+progress+'%');
+            
+        },
+        done:function(e,dat){
+            //alert(JSON.stringify(dat));
+            if (dat['result']['stdresp']['status']==1){
+                alert('操作已成功!');
+                getfilelist($('#hd_sel_path').val());
+                //在页面上添加文件；
+            }
+            else{
+                alert(dat['result']['stdresp']['errmsg']);
+            }
+
+            closeDiv();
+        }
+    });
+}
+
+
+function closeDiv(){
+
+    $('#content_oper_fileupload').hide();
+    $('#content_oper_input').hide();
+    $('#content_oper_fileupload_progress').text('');
+}
+
+
+function do_opr(){
+    var opr_type = $('#hd_opr').val();
+    var xpth= $('#hd_sel_path').val();
+    var sel_item = $('#jqxTree').jqxTree('selectedItem');
+
+    
+
+    pasttext = getpasttext(xpth);
+
+    var newtxt= $('#txt_input').val()+'/';
+
+    if (opr_type=='opr_rename_fd'&&pasttext==newtxt){
+        closeDiv();
+        return 0;
+    };
+
+    //alert(xpth);
+
+    newxpth  = getnewpath(opr_type,xpth,newtxt);
+
+    //alert(newxpth);
+
+
+     var bl  = true;
+
+     if(opr_type!='opr_del_fd'){
+        if (checkduplicate(newxpth)){
+            bl = false
+        }
+     }
+     else{
+        //promot,确认删除,非空;
+        bl=confirm("确认要删除吗?");
+     }
+
+
+
+     if (bl){
+        $.post('/kbopr/',
+            {
+                'xpath':xpth,
+                'xpathnew':newxpth,
+                'opr':opr_type,
+                '_xsrf':getCookie("_xsrf")
+            },
+            function(dat) {
+                if (dat['stdresp']['status']==1){
+                    alert('操作已成功!');
+
+                    //change or add the node
+                    if(opr_type=='opr_new_fd'){
+                        $('#jqxTree').jqxTree('addTo', { label:$('#txt_input').val() ,value:newxpth}, sel_item);
+                    }
+                    else if(opr_type=='opr_del_fd'){
+                         $('#jqxTree').jqxTree('removeItem', sel_item);
+                    }
+                    else if(opr_type=='opr_rename_fd'){
+                        $('#jqxTree').jqxTree('updateItem', sel_item,  { label:$('#txt_input').val() ,value:newxpth});
+                    }
+                    //again,content menu;
+                    bindContentMenu();
+
+                    //
+
+                }
+                else{
+                    alert(dat['stdresp']['errmsg']);
+
+                }
+
+            }
+       );
+     }
+
+
+
+    closeDiv();
+    return 1;
+
+};
+
+function check_hasfile_or_childs(xpth){
+    //check the folder is empty or not? true is not empty;
+    var items = $('#jqxTree').jqxTree('getItems');
+    var xpth_len = xpth.length;
+
+    if ($('#content_fils_list').html()!=''){
+        return true;
+    }
+
+    for(var i=0;i<items.length;i++){
+        if (items[i].value!=xpth&&items[i].value.substring(0,xpth_len)==xpth){
+            return true;
+        }
+    }
+
+    return false;
+}
+
+function  getnewpath(opr,xpth,newname){
+
+//必须返回结尾的/
+    var pretext = '/';
+
+    if(xpth==undefined||xpth=='/'){
+        pretext='/';
+    }
+
+    pretext = xpth;
+    if(opr=='opr_new_fd'){
+        return pretext+newname;
+    }
+
+
+    
+    if (pretext.substring(pretext.length-1)=='/'){
+        pretext =pretext.substring(0,pretext.length-1);
+    }
+    if (pretext.lastIndexOf('/')>-1){
+        pretext = pretext.substring(0,pretext.lastIndexOf('/'));  
+    }
+
+    if (pretext.indexOf('/')>-1){
+        pretext +='/';
+    }
+    if (pretext.substring(0,1)!='/'){
+        pretext = '/'+pretext;
+    }
+
+    
+
+    return pretext+newname;
+    
+    
+};
+
+function  getpasttext(xpth){
+//xpth,必须结尾是/
+    var pasttext = '';
+
+    if(xpth==undefined||xpth=='/'){
+        pasttext='';
+    }
+
+    pasttext = xpth;
+    if (xpth.substring(pasttext.length-1)=='/'){
+        pasttext =pasttext.substring(0,pasttext.length-1);
+    }
+
+    if (pasttext.indexOf('/')>-1){
+        pasttext = pasttext.substring(pasttext.lastIndexOf('/')+1);    
+    }
+
+    return pasttext;
+    
+};
+
+function checkduplicate(newxpth){
+    for(var i=0;i<DATA2.length;i++){
+        if(DATA2[i]['value']==newxpth){
+            return true;
+        }
+    }
+    return false;
+};
+
+
+
+function getfilelist(xpth){
+    $('#content_files').hide();
+
+    //alert($('#hd_sel_path').val());
+
+    $.post('/kbfiles/',
+        {
+            'xpath':$('#hd_sel_path').val(),
+            '_xsrf':getCookie("_xsrf")
+        },
+
+        function(dat) {
+            if (dat['stdresp']['status']==1){
+                var dats = dat['dat'];
+                $('#content_fils_list').html('');
+
+                for (var i=0;i<dats.length;i++){    
+                    $('#content_fils_list').append($('<li><span style="display:inline-block; width:300px;">'+dats[i]+'</span><span><a style="margin:10px;cursor:pointer" onclick="file_del()">删除</a><a style="cursor:pointer" onclick="file_download()">下载</a></span></li>'));
+
+                }
+            };
+
+            $('#content_files').show();
+        }
+    );
+};
+
+
+
+function getCookie(name) {
+        var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+        return r ? r[1] : undefined;
+}
+
+function file_del(){
+
+    bl=confirm("确认要删除吗?");
+    if(!bl){
+        return 0;
+    }
+
+     var evt = window.event || arguments.callee.caller.arguments[0];
+     var src = $(evt.srcElement || evt.target); 
+
+     var fname = src.parent().siblings().eq(0).text();
+     var xpth= $('#hd_sel_path').val();
+
+     if (xpth.substring(xpth.length-1)!='/'){
+        xpth+='/';
+     }
+
+     xpth+=fname;
+
+
+     $.post('/fdel/',
+        {
+            'xpath':xpth,
+            '_xsrf':getCookie("_xsrf")
+        },
+
+        function(dat) {
+            dat = JSON.parse(dat);
+
+            if (dat['stdresp']['status']==1){
+                alert('操作已成功!');
+                getfilelist(xpth);
+            }else{
+                alert(dat['stdresp']['errmsg']);
+            }
+        }
+    );
+}
+
+
+function file_download(){
+     var evt = window.event || arguments.callee.caller.arguments[0];
+     var src = $(evt.srcElement || evt.target); 
+
+     var fname = src.parent().siblings().eq(0).text();
+     var xpth= $('#hd_sel_path').val();
+
+     if (xpth.substring(xpth.length-1)!='/'){
+        xpth+='/';
+     }
+
+     xpth+=fname;
+     $('#frm_file_download').attr('src','/fdld/'+xpth);
+}
+</script>

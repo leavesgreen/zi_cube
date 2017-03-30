@@ -1,0 +1,38 @@
+2016-03-04 22:10:35,789 web.py[line:1946] WARNING 404 GET /report (::1) 12.00ms
+2016-03-04 22:10:36,286 web.py[line:1946] WARNING 404 GET /favicon.ico (::1) 188.00ms
+2016-03-04 22:10:36,301 web.py[line:1946] WARNING 404 GET /favicon.ico (::1) 3.00ms
+2016-03-04 22:10:39,038 web.py[line:1524] ERROR Uncaught exception GET /report/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/report/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:44.0) Gecko/20100101 Firefox/44.0', 'Connection': 'keep-alive'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1443, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "main2.py", line 252, in get
+    self.render('aaaaaaaaaaaaaaaaaa')
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 699, in render
+    html = self.render_string(template_name, **kwargs)
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 803, in render_string
+    t = loader.load(template_name)
+  File "D:\Python27\lib\site-packages\tornado\template.py", line 424, in load
+    self.templates[name] = self._create_template(name)
+  File "D:\Python27\lib\site-packages\tornado\template.py", line 451, in _create_template
+    with open(path, "rb") as f:
+IOError: [Errno 2] No such file or directory: 'E:\\temp\\pydev\\zi_cube\\templates\\aaaaaaaaaaaaaaaaaa'
+2016-03-04 22:10:39,190 web.py[line:1946] INFO 200 GET /report/ (::1) 154.00ms
+2016-03-04 22:11:32,494 autoreload.py[line:204] INFO main2.py modified; restarting server
+2016-03-04 22:11:38,766 web.py[line:1946] INFO 200 GET /report/ (::1) 1.00ms
+2016-03-04 22:13:18,730 web.py[line:1946] INFO 304 GET /report/ (::1) 9030.00ms
+2016-03-04 22:13:27,433 web.py[line:1946] INFO 304 GET /report/ (::1) 8694.00ms
+2016-03-04 22:32:15,075 web.py[line:1946] INFO 304 GET /report/ (::1) 9207.00ms
+2016-03-04 22:32:15,079 web.py[line:1946] INFO 200 GET /report2/ (::1) 1.00ms
+2016-03-05 07:30:10,815 web.py[line:1946] INFO 304 GET /report2/ (::1) 1.00ms
+2016-03-05 07:33:53,450 web.py[line:1946] INFO 304 GET /report2/ (::1) 3.00ms
+2016-03-05 07:34:59,007 web.py[line:1946] INFO 304 GET /report2/ (::1) 1.00ms
+2016-03-05 07:37:31,588 web.py[line:1946] INFO 200 GET /report2/ (192.168.1.102) 1.00ms
+2016-03-05 07:37:31,989 web.py[line:1946] WARNING 404 GET /favicon.ico (192.168.1.102) 155.00ms
+2016-03-05 07:38:01,417 web.py[line:1946] INFO 304 GET /report2/ (192.168.1.102) 1.00ms
+2016-03-05 07:38:16,569 web.py[line:1946] INFO 304 GET /report/ (::1) 7719.00ms
+2016-03-05 07:38:16,575 web.py[line:1946] INFO 304 GET /report2/ (192.168.1.102) 1.00ms
+2016-03-05 07:38:46,634 web.py[line:1946] INFO 304 GET /report/ (::1) 6982.00ms
+2016-03-05 07:38:46,641 web.py[line:1946] INFO 304 GET /report2/ (192.168.1.102) 1.00ms
+2016-03-05 12:02:01,088 web.py[line:1946] INFO 200 GET /m2/ (192.168.1.102) 1.00ms
+2016-03-05 12:02:19,724 autoreload.py[line:204] INFO main2.py modified; restarting server

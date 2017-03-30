@@ -1,0 +1,348 @@
+2016-05-02 08:02:05,181 web.py[line:1524] ERROR Uncaught exception GET /m1/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0', 'Connection': 'keep-alive', 'Cookie': 'user="2|1:0|10:1461051483|4:user|8:MTAwMzI0|2334890054b4a5f17e2740fa6492f087266c7d9f708108e2a2f228a29a662a74"; username=0001'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1445, in _execute
+    result = yield result
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1008, in run
+    value = future.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1014, in run
+    yielded = self.gen.throw(*exc_info)
+  File "main2.py", line 200, in get
+    datas=yield  ams.test()
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1008, in run
+    value = future.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1014, in run
+    yielded = self.gen.throw(*exc_info)
+  File "E:\temp\pydev\zi_cube\asyncMysql.py", line 37, in test
+    yield datas
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1008, in run
+    value = future.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1090, in handle_yield
+    self.future = convert_yielded(yielded)
+  File "D:\Python27\lib\site-packages\singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1222, in convert_yielded
+    raise BadYieldError("yielded unknown object %r" % (yielded,))
+BadYieldError: yielded unknown object ((u'1ab87b70-0ff9-11e6-8c6f-689423ea45be', u'123', 1), (u'e41b138f-0ff6-11e6-89e7-689423ea45be', u'123', 1))
+2016-05-02 08:02:05,272 web.py[line:1946] INFO 200 GET /m1/ (::1) 180.00ms
+2016-05-02 08:02:05,424 web.py[line:1946] WARNING 404 GET /favicon.ico (::1) 1.00ms
+2016-05-02 08:02:05,809 web.py[line:1946] WARNING 404 GET /favicon.ico (::1) 2.00ms
+2016-05-02 08:08:32,943 autoreload.py[line:204] INFO E:\temp\pydev\zi_cube\asyncMysql.py modified; restarting server
+2016-05-02 08:08:36,801 autoreload.py[line:204] INFO E:\temp\pydev\zi_cube\asyncMysql.py modified; restarting server
+2016-05-02 08:08:42,198 autoreload.py[line:204] INFO E:\temp\pydev\zi_cube\asyncMysql.py modified; restarting server
+2016-05-02 08:09:00,204 web.py[line:1524] ERROR Uncaught exception GET /m1/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0', 'Connection': 'keep-alive', 'Cookie': 'user="2|1:0|10:1461051483|4:user|8:MTAwMzI0|2334890054b4a5f17e2740fa6492f087266c7d9f708108e2a2f228a29a662a74"; username=0001', 'Cache-Control': 'max-age=0', 'If-None-Match': '"678a6134068cf907aed4a866ee166a2ef71d49da"'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1445, in _execute
+    result = yield result
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1008, in run
+    value = future.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1014, in run
+    yielded = self.gen.throw(*exc_info)
+  File "main2.py", line 200, in get
+    datas=yield  ams.test()
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1008, in run
+    value = future.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1014, in run
+    yielded = self.gen.throw(*exc_info)
+  File "E:\temp\pydev\zi_cube\asyncMysql.py", line 41, in test
+    yield ls
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1008, in run
+    value = future.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1090, in handle_yield
+    self.future = convert_yielded(yielded)
+  File "D:\Python27\lib\site-packages\singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1216, in convert_yielded
+    return multi(yielded)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 683, in multi
+    return multi_future(children, quiet_exceptions=quiet_exceptions)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 775, in multi_future
+    children = list(map(convert_yielded, children))
+  File "D:\Python27\lib\site-packages\singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1222, in convert_yielded
+    raise BadYieldError("yielded unknown object %r" % (yielded,))
+BadYieldError: yielded unknown object (u'1217f761-0ffa-11e6-a846-689423ea45be', u'123', 1)
+2016-05-02 08:09:00,255 web.py[line:1946] INFO 200 GET /m1/ (::1) 141.00ms
+2016-05-02 08:12:06,466 web.py[line:1524] ERROR Uncaught exception GET /m1/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0', 'Connection': 'keep-alive', 'Cookie': 'user="2|1:0|10:1461051483|4:user|8:MTAwMzI0|2334890054b4a5f17e2740fa6492f087266c7d9f708108e2a2f228a29a662a74"; username=0001', 'Cache-Control': 'max-age=0', 'If-None-Match': '"7a29df603b31a5d99434d49dcf30a9571ea25658"'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1445, in _execute
+    result = yield result
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1008, in run
+    value = future.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1014, in run
+    yielded = self.gen.throw(*exc_info)
+  File "main2.py", line 200, in get
+    datas=yield  ams.test()
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1008, in run
+    value = future.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1014, in run
+    yielded = self.gen.throw(*exc_info)
+  File "E:\temp\pydev\zi_cube\asyncMysql.py", line 41, in test
+    yield ls
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1008, in run
+    value = future.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1090, in handle_yield
+    self.future = convert_yielded(yielded)
+  File "D:\Python27\lib\site-packages\singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1216, in convert_yielded
+    return multi(yielded)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 683, in multi
+    return multi_future(children, quiet_exceptions=quiet_exceptions)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 775, in multi_future
+    children = list(map(convert_yielded, children))
+  File "D:\Python27\lib\site-packages\singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1216, in convert_yielded
+    return multi(yielded)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 683, in multi
+    return multi_future(children, quiet_exceptions=quiet_exceptions)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 775, in multi_future
+    children = list(map(convert_yielded, children))
+  File "D:\Python27\lib\site-packages\singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1222, in convert_yielded
+    raise BadYieldError("yielded unknown object %r" % (yielded,))
+BadYieldError: yielded unknown object u'1217f761-0ffa-11e6-a846-689423ea45be'
+2016-05-02 08:12:06,519 web.py[line:1946] INFO 200 GET /m1/ (::1) 124.00ms
+2016-05-02 09:27:29,842 web.py[line:1524] ERROR Uncaught exception GET /m1/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0', 'Connection': 'keep-alive', 'Cookie': 'user="2|1:0|10:1461051483|4:user|8:MTAwMzI0|2334890054b4a5f17e2740fa6492f087266c7d9f708108e2a2f228a29a662a74"; username=0001', 'If-None-Match': '"cd8911938c8aff345ea7d66c664cd08d6a345f7e"'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1445, in _execute
+    result = yield result
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1008, in run
+    value = future.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1014, in run
+    yielded = self.gen.throw(*exc_info)
+  File "main2.py", line 200, in get
+    datas=yield  ams.test()
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1008, in run
+    value = future.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1014, in run
+    yielded = self.gen.throw(*exc_info)
+  File "E:\temp\pydev\zi_cube\asyncMysql.py", line 41, in test
+    yield "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1008, in run
+    value = future.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1090, in handle_yield
+    self.future = convert_yielded(yielded)
+  File "D:\Python27\lib\site-packages\singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1222, in convert_yielded
+    raise BadYieldError("yielded unknown object %r" % (yielded,))
+BadYieldError: yielded unknown object 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+2016-05-02 09:27:29,878 web.py[line:1946] INFO 200 GET /m1/ (::1) 106.00ms
+2016-05-02 09:43:58,752 web.py[line:1524] ERROR Uncaught exception GET /m1/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0', 'Connection': 'keep-alive', 'Cookie': 'user="2|1:0|10:1461051483|4:user|8:MTAwMzI0|2334890054b4a5f17e2740fa6492f087266c7d9f708108e2a2f228a29a662a74"; username=0001', 'Cache-Control': 'max-age=0', 'If-None-Match': '"c2f127699c4a51e34f1cc8292adbeacf97da4738"'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1401, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "D:\Python27\lib\site-packages\tornado\stack_context.py", line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1613, in future_complete
+    f.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1014, in run
+    yielded = self.gen.throw(*exc_info)
+  File "main2.py", line 201, in get
+    datas=yield  ams.test()
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1008, in run
+    value = future.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1014, in run
+    yielded = self.gen.throw(*exc_info)
+  File "E:\temp\pydev\zi_cube\asyncMysql.py", line 41, in test
+    yield "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1008, in run
+    value = future.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1090, in handle_yield
+    self.future = convert_yielded(yielded)
+  File "D:\Python27\lib\site-packages\singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1222, in convert_yielded
+    raise BadYieldError("yielded unknown object %r" % (yielded,))
+BadYieldError: yielded unknown object 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+2016-05-02 09:43:58,842 web.py[line:1946] INFO 304 GET /m1/ (::1) 169.00ms
+2016-05-02 17:44:17,798 web.py[line:1524] ERROR Uncaught exception GET /m1/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0', 'Connection': 'keep-alive', 'Cookie': 'user="2|1:0|10:1461051483|4:user|8:MTAwMzI0|2334890054b4a5f17e2740fa6492f087266c7d9f708108e2a2f228a29a662a74"; username=0001', 'If-None-Match': '"c2f127699c4a51e34f1cc8292adbeacf97da4738"'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1401, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "D:\Python27\lib\site-packages\tornado\stack_context.py", line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1613, in future_complete
+    f.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1014, in run
+    yielded = self.gen.throw(*exc_info)
+  File "main2.py", line 201, in get
+    datas=yield  ams.test()
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1008, in run
+    value = future.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1017, in run
+    yielded = self.gen.send(value)
+  File "E:\temp\pydev\zi_cube\asyncMysql.py", line 39, in test
+    fut = Future()
+NameError: global name 'Future' is not defined
+2016-05-02 17:44:17,834 web.py[line:1946] INFO 200 GET /m1/ (::1) 97.00ms
+2016-05-02 17:44:35,313 autoreload.py[line:204] INFO E:\temp\pydev\zi_cube\asyncMysql.py modified; restarting server
+2016-05-02 17:44:41,798 web.py[line:1524] ERROR Uncaught exception GET /m1/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0', 'Connection': 'keep-alive', 'Cookie': 'user="2|1:0|10:1461051483|4:user|8:MTAwMzI0|2334890054b4a5f17e2740fa6492f087266c7d9f708108e2a2f228a29a662a74"; username=0001', 'Cache-Control': 'max-age=0', 'If-None-Match': '"2100e471aac18f9179ec09a084536fa2d6c681f1"'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1401, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "D:\Python27\lib\site-packages\tornado\stack_context.py", line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1613, in future_complete
+    f.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1017, in run
+    yielded = self.gen.send(value)
+  File "main2.py", line 202, in get
+    self.write(datas)
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 690, in write
+    raise TypeError(message)
+TypeError: write() only accepts bytes, unicode, and dict objects
+2016-05-02 17:44:41,848 web.py[line:1946] INFO 200 GET /m1/ (::1) 96.00ms
+2016-05-02 17:46:01,599 web.py[line:1946] INFO 200 GET /m1/ (::1) 43.00ms
+2016-05-02 17:46:05,516 web.py[line:1524] ERROR Uncaught exception GET /m1/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0', 'Connection': 'keep-alive', 'Cookie': 'user="2|1:0|10:1461051483|4:user|8:MTAwMzI0|2334890054b4a5f17e2740fa6492f087266c7d9f708108e2a2f228a29a662a74"; username=0001', 'Cache-Control': 'max-age=0', 'If-None-Match': '"2be88ca4242c76e8253ac62474851065032d6833"'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1401, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "D:\Python27\lib\site-packages\tornado\stack_context.py", line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1613, in future_complete
+    f.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1014, in run
+    yielded = self.gen.throw(*exc_info)
+  File "main2.py", line 201, in get
+    datas=yield  ams.test()
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1008, in run
+    value = future.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 282, in wrapper
+    yielded = next(result)
+  File "E:\temp\pydev\zi_cube\asyncMysql.py", line 24, in test
+    with (yield pool.Connection()) as conn:
+  File "D:\Python27\lib\site-packages\tormysql\pool.py", line 118, in get_connection
+    raise ConnectionPoolClosedError("Connection pool closed.")
+ConnectionPoolClosedError: Connection pool closed.
+2016-05-02 17:46:05,559 web.py[line:1946] INFO 200 GET /m1/ (::1) 44.00ms
+2016-05-02 17:46:36,368 web.py[line:1946] INFO 200 GET /m1/ (::1) 55.00ms
+2016-05-02 20:35:51,193 web.py[line:1524] ERROR Uncaught exception GET /m1/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0', 'Connection': 'keep-alive', 'Cookie': 'user="2|1:0|10:1461051483|4:user|8:MTAwMzI0|2334890054b4a5f17e2740fa6492f087266c7d9f708108e2a2f228a29a662a74"; username=0001', 'If-None-Match': '"2be88ca4242c76e8253ac62474851065032d6833"'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1401, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "D:\Python27\lib\site-packages\tornado\stack_context.py", line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1613, in future_complete
+    f.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1014, in run
+    yielded = self.gen.throw(*exc_info)
+  File "main2.py", line 201, in get
+    datas=yield  ams.test()
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1008, in run
+    value = future.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1014, in run
+    yielded = self.gen.throw(*exc_info)
+  File "E:\temp\pydev\zi_cube\asyncMysql.py", line 39, in test
+    yield gen.Return(datas)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1008, in run
+    value = future.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1090, in handle_yield
+    self.future = convert_yielded(yielded)
+  File "D:\Python27\lib\site-packages\singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1222, in convert_yielded
+    raise BadYieldError("yielded unknown object %r" % (yielded,))
+BadYieldError: yielded unknown object Return(((u'0944e60f-1005-11e6-804f-689423ea45be', u'123', 1), (u'1217f761-0ffa-11e6-a846-689423ea45be', u'123', 1), (u'1ab87b70-0ff9-11e6-8c6f-689423ea45be', u'123', 1), (u'56b3104f-1007-11e6-9ea5-689423ea45be', u'123', 1), (u'6785f30f-1062-11e6-90eb-689423ea45be', u'123', 1), (u'70333fcf-104a-11e6-a7fb-689423ea45be', u'123', 1), (u'7e83f3de-104a-11e6-a83e-689423ea45be', u'123', 1), (u'81207f0f-0ffa-11e6-a688-689423ea45be', u'123', 1), (u'ae1513a1-104a-11e6-8017-689423ea45be', u'123', 1), (u'c2ccba00-104a-11e6-8475-689423ea45be', u'123', 1), (u'e41b138f-0ff6-11e6-89e7-689423ea45be', u'123', 1)),)
+2016-05-02 20:35:51,242 web.py[line:1946] INFO 200 GET /m1/ (::1) 140.00ms
+2016-05-02 20:36:17,112 autoreload.py[line:204] INFO E:\temp\pydev\zi_cube\asyncMysql.py modified; restarting server
+2016-05-02 20:36:21,931 web.py[line:1946] INFO 200 GET /m1/ (::1) 84.00ms
+2016-05-02 20:50:44,625 web.py[line:1946] INFO 200 GET /m1/ (::1) 72.00ms
+2016-05-02 20:50:48,832 web.py[line:1524] ERROR Uncaught exception GET /m1/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0', 'Connection': 'keep-alive', 'Cookie': 'user="2|1:0|10:1461051483|4:user|8:MTAwMzI0|2334890054b4a5f17e2740fa6492f087266c7d9f708108e2a2f228a29a662a74"; username=0001', 'If-None-Match': '"d726fe83acaa8a08b94122470a998a454dc10eef"'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1401, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "D:\Python27\lib\site-packages\tornado\stack_context.py", line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1613, in future_complete
+    f.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1014, in run
+    yielded = self.gen.throw(*exc_info)
+  File "main2.py", line 201, in get
+    datas=yield  ams.test()
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1008, in run
+    value = future.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 282, in wrapper
+    yielded = next(result)
+  File "E:\temp\pydev\zi_cube\asyncMysql.py", line 24, in test
+    with (yield pool.Connection()) as conn:
+  File "D:\Python27\lib\site-packages\tormysql\pool.py", line 118, in get_connection
+    raise ConnectionPoolClosedError("Connection pool closed.")
+ConnectionPoolClosedError: Connection pool closed.
+2016-05-02 20:50:48,875 web.py[line:1946] INFO 200 GET /m1/ (::1) 47.00ms
+2016-05-02 21:03:23,740 web.py[line:1946] INFO 200 GET /m1/ (::1) 420.00ms
+2016-05-02 21:03:24,490 web.py[line:1946] INFO 200 GET /m2/ (::1) 0.00ms
+2016-05-02 21:03:43,019 autoreload.py[line:204] INFO E:\temp\pydev\zi_cube\asyncMysql.py modified; restarting server
+2016-05-02 21:03:48,614 web.py[line:1946] INFO 200 GET /m1/ (::1) 310.00ms
+2016-05-02 21:04:19,766 autoreload.py[line:204] INFO E:\temp\pydev\zi_cube\asyncMysql.py modified; restarting server
+2016-05-02 21:04:26,414 web.py[line:1946] INFO 304 GET /m2/ (::1) 1.00ms
+2016-05-02 21:04:26,460 web.py[line:1946] INFO 200 GET /m1/ (::1) 1381.00ms
+2016-05-02 21:04:26,572 web.py[line:1946] INFO 304 GET /m2/ (::1) 1.00ms
+2016-05-02 21:04:46,526 web.py[line:1946] INFO 304 GET /m2/ (::1) 1.00ms
+2016-05-02 21:04:46,578 web.py[line:1946] INFO 200 GET /m1/ (::1) 1364.00ms
+2016-05-02 21:04:53,565 autoreload.py[line:204] INFO E:\temp\pydev\zi_cube\asyncMysql.py modified; restarting server
+2016-05-02 21:05:12,772 web.py[line:1946] INFO 304 GET /m2/ (::1) 1.00ms
+2016-05-02 21:05:12,818 web.py[line:1946] INFO 200 GET /m1/ (::1) 12111.00ms

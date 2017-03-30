@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ECharts">
+
+
+    <!-- Bootstrap core CSS -->
+    
+    <link href=" {{ static_url("echarts/asset/css/font-awesome.min.css") }} " rel="stylesheet">
+    <link href=" {{ static_url("echarts/asset/css/bootstrap.css") }} " rel="stylesheet">
+    <link href=" {{ static_url("echarts/asset/css/carousel.css") }} " rel="stylesheet">
+    <link href=" {{ static_url("echarts/asset/css/echartsHome.css") }} " rel="stylesheet">
+
+    <link href=" {{ static_url("echarts/asset/css/codemirror.css") }} " rel="stylesheet">
+    <link href=" {{ static_url("echarts/asset/css/monokai.css") }} " rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+     <script src="{{ static_url("echarts/js/echarts.js") }}"></script>
+     <script src="{{ static_url("echarts/asset/js/codemirror.js") }}"></script>
+     <script src="{{ static_url("echarts/asset/js/javascript.js") }}"></script>
+     <script type="text/javascript">
+        require.config({
+                    paths : {
+                            'echarts' : '{{ static_url("echarts/js/") }}',
+                            'theme' : '{{ static_url("echarts/theme/") }}'
+                            //'echarts' : 'echarts/js/',
+                            //'theme' : 'echarts/theme/'
+                        }
+                });
+
+                var fmt_bar =  function (params) {
+                        //alert(JSON.stringify(params));
+                        if(params.value==0){
+                            return '';
+                        }
+                        
+                        return params.value;
+
+                        //return Math.round(params.value/10000,4);
+                    };
+
+                var srdata = {{ resp['series'] }};
+
+                for (var i=0;i<srdata.length;i++){
+                    if (srdata[i].type=="bar"){
+                        srdata[i].itemStyle.normal.label['formatter']=fmt_bar;
+                       
+                    }
+                    
+                }
+
+                //alert(JSON.stringify(srdata));
+
+                var voption = {
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    grid:{
+                        height:250
+                        //backgroundColor:rgba(255,255,255,1)
+                        
+                    },
+                    toolbox: {
+                        show : true,
+                        feature : {
+                            mark : {show: false},
+                            dataView : {show: false, readOnly: true},
+                            magicType: {show: false, type: ['line', 'bar']},
+                            restore : {show: false},
+                            saveAsImage : {show: true}
+                        }
+                    },
+                    calculable : true,
+                    legend: {
+                        data: {{ resp["lg_data"] }}
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : {{ resp["xdata"] }},
+                            axisLabel:{interval:0,rotate:-45}
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'log',
+                            name : '金额/万元',
+                            axisLabel : {
+                                formatter: '{value} '
+                            }
+                        },
+                        {
+                            type : 'value',
+                            name : '比率',
+                            axisLabel : {
+                                formatter: '{value}%'
+                            }
+                        }
+                    ],
+                    series : srdata
+                };
+
+                require(
+                    [
+                        'echarts',
+                        'echarts/chart/line',
+                        'echarts/chart/bar',
+                        'echarts/chart/scatter',
+                        'echarts/chart/k',
+                        'echarts/chart/pie',
+                        'echarts/chart/radar',
+                        'echarts/chart/force',
+                        'echarts/chart/chord',
+                        'echarts/chart/gauge',
+                        'echarts/chart/funnel',
+                        'echarts/chart/eventRiver',
+                        'theme/helianthus',
+                        'theme/macarons',
+                        
+                    ],
+
+                    function (ec) {
+
+                        var myChart = ec.init(document.getElementById('main'));
+                        var option = voption;
+                        myChart.setOption(option);
+                        
+                        myChart.setTheme('macarons');
+                        //refresh();
+                        window.onresize = myChart.resize;
+                    }
+                );
+
+</script>
+</head>
+
+<body style='background-color:#FFFFFF;padding:0px'>
+    <!-- Fixed navbar -->
+    <div class="container-fluid" style='padding:0px'>
+        <div class="row-fluid" style='padding:0px'>
+            <div id="sidebar-code" class="col-md-12" style='padding:0px'>
+                <div id="main"  style='height:400px; border:1px solid #aaa'>
+                </div>
+                <div style='display:none'>
+                      <form id= 'form_main' action="" method="post">
+                        <input id='_data' name='_data' type='hidden' value=''/>
+                            {{ xsrf_form_html() }}
+                     </form>
+                </div>
+            </div>
+        </div><!--/row-->
+    </div><!--/.fluid-container-->
+
+
+
+
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="{{ static_url("echarts/asset/js/jquery.min.js") }}"></script>
+    <script src="{{ static_url("echarts/asset/js/bootstrap.min.js") }}"></script>
+    <script src="{{ static_url("echarts/asset/js/echartsHome.js") }}"></script>
+
+
+
+</body>
+</html>

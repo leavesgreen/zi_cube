@@ -1,0 +1,542 @@
+2016-12-08 12:27:31,770 web.py[line:1946] WARNING 404 GET /m1 (::1) 106.00ms
+2016-12-08 12:27:31,875 web.py[line:1946] WARNING 404 GET /favicon.ico (::1) 39.00ms
+2016-12-08 12:27:38,371 web.py[line:1524] ERROR Uncaught exception GET /m1/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch, br', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36', 'Connection': 'keep-alive', 'Cookie': 'username=admin; csrftoken=3MsoEQVlX97qpmhVB9iEyOhv5DdHTCoR; uk=20161207124458691001; JSESSIONID=C495458DC727C5232EDA7A4512ACE2FD', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1401, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "D:\Python27\lib\site-packages\tornado\stack_context.py", line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1613, in future_complete
+    f.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1014, in run
+    yielded = self.gen.throw(*exc_info)
+  File "main2.py", line 201, in get
+    datas=yield  ams.test()
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1008, in run
+    value = future.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1014, in run
+    yielded = self.gen.throw(*exc_info)
+  File "E:\temp\pydev\zi_cube\asyncMysql.py", line 24, in test
+    with (yield pool.Connection()) as conn:
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 1008, in run
+    value = future.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tormysql\util.py", line 14, in finish
+    result = fun(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\tormysql\connections.py", line 154, in connect
+    raise exc
+OperationalError: (2003, "Can't connect to MySQL server on 127.0.0.1:3306 (StreamClosedError('Stream is closed',))")
+2016-12-08 12:27:38,394 web.py[line:1946] INFO 200 GET /m1/ (::1) 1212.00ms
+2016-12-08 12:27:58,825 autoreload.py[line:204] INFO main2.py modified; restarting server
+2016-12-08 12:28:09,819 autoreload.py[line:204] INFO main2.py modified; restarting server
+2016-12-08 12:28:42,887 autoreload.py[line:204] INFO main2.py modified; restarting server
+2016-12-08 12:28:44,809 autoreload.py[line:204] INFO main2.py modified; restarting server
+2016-12-08 12:28:53,298 autoreload.py[line:204] INFO main2.py modified; restarting server
+2016-12-08 12:29:12,713 web.py[line:1946] INFO 200 GET /m1/ (::1) 215.00ms
+2016-12-08 12:29:12,720 web.py[line:1524] ERROR Uncaught exception GET /m1/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch, br', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36', 'Connection': 'keep-alive', 'Cookie': 'username=admin; csrftoken=3MsoEQVlX97qpmhVB9iEyOhv5DdHTCoR; uk=20161207124458691001; JSESSIONID=C495458DC727C5232EDA7A4512ACE2FD', 'Cache-Control': 'max-age=0', 'If-None-Match': '"e4ae3745a1faa27f5d336768ad8ba7a9e4d9d0b2"', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1401, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "D:\Python27\lib\site-packages\tornado\stack_context.py", line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1613, in future_complete
+    f.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 267, in wrapper
+    result = func(*args, **kwargs)
+  File "main2.py", line 207, in get
+    self.finish();
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 903, in finish
+    raise RuntimeError("finish() called twice")
+RuntimeError: finish() called twice
+2016-12-08 12:29:13,151 web.py[line:1946] INFO 200 GET /static/css/bootstrap.min.css?v=78e7f91c0c4cca415e0683626aa23925 (::1) 407.00ms
+2016-12-08 12:29:13,154 web.py[line:1946] INFO 200 GET /static/js/bootstrap.min.js?v=281cd50dd9f58c5550620fc148a7bc39 (::1) 2.00ms
+2016-12-08 12:29:13,158 web.py[line:1946] INFO 200 GET /static/jqwidgets/jqxdata.js?v=9f1ab773caf1ff5192f1a50e7bd1acd7 (::1) 3.00ms
+2016-12-08 12:29:13,161 web.py[line:1946] INFO 200 GET /static/jqwidgets/jqxcore.js?v=cbbfdf9b2e070538347e097d6c5310c9 (::1) 2.00ms
+2016-12-08 12:29:13,165 web.py[line:1946] INFO 200 GET /static/jqwidgets/jqxbuttons.js?v=160f9be851b50717ed2d0f046e4c7bbe (::1) 2.00ms
+2016-12-08 12:29:13,167 web.py[line:1946] INFO 200 GET /static/jqwidgets/jqxscrollbar.js?v=958cac54bb8b4ce38f8983b280f86fba (::1) 1.00ms
+2016-12-08 12:29:13,171 web.py[line:1946] INFO 200 GET /static/jqwidgets/jqxdata.export.js?v=65c219a14b63451386746b31e30d6af0 (::1) 2.00ms
+2016-12-08 12:29:13,174 web.py[line:1946] INFO 200 GET /static/jqwidgets/styles/jqx.base.css?v=d70f8e5e9d81e9d804edaa0d4c78ec5d (::1) 3.00ms
+2016-12-08 12:29:13,186 web.py[line:1946] INFO 200 GET /static/jqwidgets/styles/jqx.custom.css?v=a389db137afebcfb0896d4b1559a2354 (::1) 2.00ms
+2016-12-08 12:29:13,204 web.py[line:1946] WARNING 404 GET /chartx/ (::1) 0.00ms
+2016-12-08 12:29:13,210 web.py[line:1946] INFO 200 GET /static/jqwidgets/jqxdatatable.js?v=484eec45ac13a164193b8437016ad56b (::1) 4.00ms
+2016-12-08 12:29:13,213 web.py[line:1946] INFO 200 GET /static/jqwidgets/jqxtreegrid.js?v=853f085dd8c40a5538425efad40383e7 (::1) 2.00ms
+2016-12-08 12:29:13,217 web.py[line:1946] INFO 200 GET /static/jqwidgets/jqxdatetimeinput.js?v=8694ff25df007988cb73f5e2784c77a5 (::1) 3.00ms
+2016-12-08 12:29:13,220 web.py[line:1946] INFO 200 GET /static/jqwidgets/globalization/globalize.js?v=516fb087fd88371c8af273597e794779 (::1) 2.00ms
+2016-12-08 12:29:13,226 web.py[line:1946] INFO 200 GET /static/jqwidgets/jqxmenu.js?v=31a34e4026735ada66fa7ad6ee04c9a2 (::1) 5.00ms
+2016-12-08 12:29:13,230 web.py[line:1946] INFO 200 GET /static/jqwidgets/jqxcalendar.js?v=e6c276266bdd381536c640d3ca986e28 (::1) 3.00ms
+2016-12-08 12:29:13,233 web.py[line:1946] INFO 200 GET /static/jqwidgets/jqxtooltip.js?v=bbe9849c4fa211e7eafe607c2cec2587 (::1) 2.00ms
+2016-12-08 12:29:13,451 web.py[line:1946] INFO 200 GET /static/jqwidgets/styles/images/icon-calendar.png (::1) 2.00ms
+2016-12-08 12:29:13,492 web.py[line:1946] INFO 200 GET /static/jqwidgets/styles/images/icon-time.png (::1) 39.00ms
+2016-12-08 12:29:13,553 web.py[line:1946] WARNING 404 POST /saledata/ (::1) 1.00ms
+2016-12-08 12:30:41,085 web.py[line:1946] INFO 200 GET /m1/ (::1) 19.00ms
+2016-12-08 12:30:41,088 web.py[line:1524] ERROR Uncaught exception GET /m1/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch, br', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36', 'Connection': 'keep-alive', 'Cookie': 'username=admin; csrftoken=3MsoEQVlX97qpmhVB9iEyOhv5DdHTCoR; uk=20161207124458691001; JSESSIONID=C495458DC727C5232EDA7A4512ACE2FD; _xsrf=2|a0ee63fa|4c7ea5d910e8a661f450ee585616de4b|1481171352', 'Cache-Control': 'max-age=0', 'If-None-Match': '"c8369e4b5dead1c23534ec2cd0e323d37ca09dae"', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1401, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "D:\Python27\lib\site-packages\tornado\stack_context.py", line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1613, in future_complete
+    f.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 267, in wrapper
+    result = func(*args, **kwargs)
+  File "main2.py", line 207, in get
+    self.finish();
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 903, in finish
+    raise RuntimeError("finish() called twice")
+RuntimeError: finish() called twice
+2016-12-08 12:30:41,104 web.py[line:1946] WARNING 404 GET /m2 (::1) 1.00ms
+2016-12-08 12:30:41,135 web.py[line:1946] WARNING 404 GET /chartx/ (::1) 1.00ms
+2016-12-08 12:30:41,395 web.py[line:1946] WARNING 404 POST /saledata/ (::1) 2.00ms
+2016-12-08 12:31:03,137 web.py[line:1946] INFO 200 GET /m1/ (::1) 15.00ms
+2016-12-08 12:31:03,140 web.py[line:1524] ERROR Uncaught exception GET /m1/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch, br', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36', 'Connection': 'keep-alive', 'Cookie': 'username=admin; csrftoken=3MsoEQVlX97qpmhVB9iEyOhv5DdHTCoR; uk=20161207124458691001; JSESSIONID=C495458DC727C5232EDA7A4512ACE2FD; _xsrf=2|a0ee63fa|4c7ea5d910e8a661f450ee585616de4b|1481171352', 'Cache-Control': 'max-age=0', 'If-None-Match': '"babd13188568100f9272371d8270d89ff94f8d45"', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1401, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "D:\Python27\lib\site-packages\tornado\stack_context.py", line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1613, in future_complete
+    f.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 267, in wrapper
+    result = func(*args, **kwargs)
+  File "main2.py", line 207, in get
+    self.finish();
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 903, in finish
+    raise RuntimeError("finish() called twice")
+RuntimeError: finish() called twice
+2016-12-08 12:31:03,160 web.py[line:1946] INFO 304 GET /static/css/bootstrap.min.css?v=78e7f91c0c4cca415e0683626aa23925 (::1) 2.00ms
+2016-12-08 12:31:03,163 web.py[line:1946] INFO 304 GET /static/jqwidgets/styles/jqx.base.css?v=d70f8e5e9d81e9d804edaa0d4c78ec5d (::1) 2.00ms
+2016-12-08 12:31:03,165 web.py[line:1946] INFO 304 GET /static/jqwidgets/styles/jqx.custom.css?v=a389db137afebcfb0896d4b1559a2354 (::1) 1.00ms
+2016-12-08 12:31:03,171 web.py[line:1946] INFO 304 GET /static/js/bootstrap.min.js?v=281cd50dd9f58c5550620fc148a7bc39 (::1) 1.00ms
+2016-12-08 12:31:03,184 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxbuttons.js?v=160f9be851b50717ed2d0f046e4c7bbe (::1) 3.00ms
+2016-12-08 12:31:03,187 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxcore.js?v=cbbfdf9b2e070538347e097d6c5310c9 (::1) 2.00ms
+2016-12-08 12:31:03,194 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxscrollbar.js?v=958cac54bb8b4ce38f8983b280f86fba (::1) 6.00ms
+2016-12-08 12:31:03,197 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdata.export.js?v=65c219a14b63451386746b31e30d6af0 (::1) 2.00ms
+2016-12-08 12:31:03,198 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdata.js?v=9f1ab773caf1ff5192f1a50e7bd1acd7 (::1) 1.00ms
+2016-12-08 12:31:03,201 web.py[line:1946] WARNING 404 GET /chartx/ (::1) 1.00ms
+2016-12-08 12:31:03,204 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdatatable.js?v=484eec45ac13a164193b8437016ad56b (::1) 2.00ms
+2016-12-08 12:31:03,213 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxtreegrid.js?v=853f085dd8c40a5538425efad40383e7 (::1) 8.00ms
+2016-12-08 12:31:03,217 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdatetimeinput.js?v=8694ff25df007988cb73f5e2784c77a5 (::1) 2.00ms
+2016-12-08 12:31:03,220 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxcalendar.js?v=e6c276266bdd381536c640d3ca986e28 (::1) 2.00ms
+2016-12-08 12:31:03,223 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxtooltip.js?v=bbe9849c4fa211e7eafe607c2cec2587 (::1) 2.00ms
+2016-12-08 12:31:03,232 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxmenu.js?v=31a34e4026735ada66fa7ad6ee04c9a2 (::1) 2.00ms
+2016-12-08 12:31:03,252 web.py[line:1946] INFO 200 GET /m1/m2 (::1) 19.00ms
+2016-12-08 12:31:03,259 web.py[line:1946] INFO 304 GET /static/jqwidgets/globalization/globalize.js?v=516fb087fd88371c8af273597e794779 (::1) 3.00ms
+2016-12-08 12:31:03,259 web.py[line:1524] ERROR Uncaught exception GET /m1/m2 (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/m2', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch, br', 'Host': 'localhost:8889', 'Accept': 'image/webp,image/*,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'http://localhost:8889/m1/', 'Cache-Control': 'max-age=0', 'Cookie': 'username=admin; csrftoken=3MsoEQVlX97qpmhVB9iEyOhv5DdHTCoR; uk=20161207124458691001; JSESSIONID=C495458DC727C5232EDA7A4512ACE2FD; _xsrf=2|a0ee63fa|4c7ea5d910e8a661f450ee585616de4b|1481171352'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1401, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "D:\Python27\lib\site-packages\tornado\stack_context.py", line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1613, in future_complete
+    f.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 267, in wrapper
+    result = func(*args, **kwargs)
+  File "main2.py", line 207, in get
+    self.finish();
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 903, in finish
+    raise RuntimeError("finish() called twice")
+RuntimeError: finish() called twice
+2016-12-08 12:31:03,746 web.py[line:1946] WARNING 404 POST /saledata/ (::1) 1.00ms
+2016-12-08 12:31:16,273 web.py[line:1946] INFO 302 GET /m2/ (::1) 0.00ms
+2016-12-08 12:31:44,394 web.py[line:1946] INFO 200 GET /m1/ (::1) 16.00ms
+2016-12-08 12:31:44,401 web.py[line:1524] ERROR Uncaught exception GET /m1/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch, br', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36', 'Connection': 'keep-alive', 'Cookie': 'username=admin; csrftoken=3MsoEQVlX97qpmhVB9iEyOhv5DdHTCoR; uk=20161207124458691001; JSESSIONID=C495458DC727C5232EDA7A4512ACE2FD; _xsrf=2|a0ee63fa|4c7ea5d910e8a661f450ee585616de4b|1481171352', 'Cache-Control': 'max-age=0', 'If-None-Match': '"9957ddb2198827aa5d7910cb01e31b01a49c8bf0"', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1401, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "D:\Python27\lib\site-packages\tornado\stack_context.py", line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1613, in future_complete
+    f.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 267, in wrapper
+    result = func(*args, **kwargs)
+  File "main2.py", line 207, in get
+    self.finish();
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 903, in finish
+    raise RuntimeError("finish() called twice")
+RuntimeError: finish() called twice
+2016-12-08 12:31:44,411 web.py[line:1946] INFO 304 GET /static/css/bootstrap.min.css?v=78e7f91c0c4cca415e0683626aa23925 (::1) 2.00ms
+2016-12-08 12:31:44,417 web.py[line:1946] INFO 304 GET /static/jqwidgets/styles/jqx.base.css?v=d70f8e5e9d81e9d804edaa0d4c78ec5d (::1) 2.00ms
+2016-12-08 12:31:44,423 web.py[line:1946] INFO 304 GET /static/jqwidgets/styles/jqx.custom.css?v=a389db137afebcfb0896d4b1559a2354 (::1) 2.00ms
+2016-12-08 12:31:44,426 web.py[line:1946] WARNING 404 GET /m2 (::1) 1.00ms
+2016-12-08 12:31:44,453 web.py[line:1946] INFO 304 GET /static/js/bootstrap.min.js?v=281cd50dd9f58c5550620fc148a7bc39 (::1) 2.00ms
+2016-12-08 12:31:44,456 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdata.export.js?v=65c219a14b63451386746b31e30d6af0 (::1) 2.00ms
+2016-12-08 12:31:44,459 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxcore.js?v=cbbfdf9b2e070538347e097d6c5310c9 (::1) 2.00ms
+2016-12-08 12:31:44,460 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxscrollbar.js?v=958cac54bb8b4ce38f8983b280f86fba (::1) 1.00ms
+2016-12-08 12:31:44,463 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdata.js?v=9f1ab773caf1ff5192f1a50e7bd1acd7 (::1) 2.00ms
+2016-12-08 12:31:44,466 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxbuttons.js?v=160f9be851b50717ed2d0f046e4c7bbe (::1) 2.00ms
+2016-12-08 12:31:44,467 web.py[line:1946] WARNING 404 GET /chartx/ (::1) 1.00ms
+2016-12-08 12:31:44,473 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdatatable.js?v=484eec45ac13a164193b8437016ad56b (::1) 3.00ms
+2016-12-08 12:31:44,476 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxtreegrid.js?v=853f085dd8c40a5538425efad40383e7 (::1) 2.00ms
+2016-12-08 12:31:44,479 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdatetimeinput.js?v=8694ff25df007988cb73f5e2784c77a5 (::1) 2.00ms
+2016-12-08 12:31:44,483 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxcalendar.js?v=e6c276266bdd381536c640d3ca986e28 (::1) 3.00ms
+2016-12-08 12:31:44,486 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxtooltip.js?v=bbe9849c4fa211e7eafe607c2cec2587 (::1) 2.00ms
+2016-12-08 12:31:44,489 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxmenu.js?v=31a34e4026735ada66fa7ad6ee04c9a2 (::1) 2.00ms
+2016-12-08 12:31:44,493 web.py[line:1946] INFO 304 GET /static/jqwidgets/globalization/globalize.js?v=516fb087fd88371c8af273597e794779 (::1) 2.00ms
+2016-12-08 12:31:45,729 web.py[line:1946] INFO 200 GET /m1/ (::1) 12.00ms
+2016-12-08 12:31:45,732 web.py[line:1524] ERROR Uncaught exception GET /m1/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch, br', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36', 'Connection': 'keep-alive', 'Cookie': 'username=admin; csrftoken=3MsoEQVlX97qpmhVB9iEyOhv5DdHTCoR; uk=20161207124458691001; JSESSIONID=C495458DC727C5232EDA7A4512ACE2FD; _xsrf=2|a0ee63fa|4c7ea5d910e8a661f450ee585616de4b|1481171352', 'Cache-Control': 'max-age=0', 'If-None-Match': '"ad7a3184e20c31fcefa6e055582a9fc3b8d1b2d1"', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1401, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "D:\Python27\lib\site-packages\tornado\stack_context.py", line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1613, in future_complete
+    f.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 267, in wrapper
+    result = func(*args, **kwargs)
+  File "main2.py", line 207, in get
+    self.finish();
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 903, in finish
+    raise RuntimeError("finish() called twice")
+RuntimeError: finish() called twice
+2016-12-08 12:31:45,743 web.py[line:1946] INFO 304 GET /static/css/bootstrap.min.css?v=78e7f91c0c4cca415e0683626aa23925 (::1) 2.00ms
+2016-12-08 12:31:45,746 web.py[line:1946] INFO 304 GET /static/jqwidgets/styles/jqx.base.css?v=d70f8e5e9d81e9d804edaa0d4c78ec5d (::1) 2.00ms
+2016-12-08 12:31:45,747 web.py[line:1946] INFO 304 GET /static/jqwidgets/styles/jqx.custom.css?v=a389db137afebcfb0896d4b1559a2354 (::1) 1.00ms
+2016-12-08 12:31:45,763 web.py[line:1946] INFO 304 GET /static/js/bootstrap.min.js?v=281cd50dd9f58c5550620fc148a7bc39 (::1) 3.00ms
+2016-12-08 12:31:45,766 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxcore.js?v=cbbfdf9b2e070538347e097d6c5310c9 (::1) 1.00ms
+2016-12-08 12:31:45,767 web.py[line:1946] WARNING 404 GET /chartx/ (::1) 1.00ms
+2016-12-08 12:31:45,770 web.py[line:1946] WARNING 404 GET /m2 (::1) 1.00ms
+2016-12-08 12:31:45,776 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxbuttons.js?v=160f9be851b50717ed2d0f046e4c7bbe (::1) 4.00ms
+2016-12-08 12:31:45,779 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdata.js?v=9f1ab773caf1ff5192f1a50e7bd1acd7 (::1) 2.00ms
+2016-12-08 12:31:45,782 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxscrollbar.js?v=958cac54bb8b4ce38f8983b280f86fba (::1) 2.00ms
+2016-12-08 12:31:45,786 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdata.export.js?v=65c219a14b63451386746b31e30d6af0 (::1) 2.00ms
+2016-12-08 12:31:45,789 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdatatable.js?v=484eec45ac13a164193b8437016ad56b (::1) 3.00ms
+2016-12-08 12:31:45,792 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxtreegrid.js?v=853f085dd8c40a5538425efad40383e7 (::1) 1.00ms
+2016-12-08 12:31:45,796 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdatetimeinput.js?v=8694ff25df007988cb73f5e2784c77a5 (::1) 2.00ms
+2016-12-08 12:31:45,799 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxcalendar.js?v=e6c276266bdd381536c640d3ca986e28 (::1) 2.00ms
+2016-12-08 12:31:45,802 web.py[line:1946] INFO 304 GET /static/jqwidgets/globalization/globalize.js?v=516fb087fd88371c8af273597e794779 (::1) 2.00ms
+2016-12-08 12:31:45,805 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxmenu.js?v=31a34e4026735ada66fa7ad6ee04c9a2 (::1) 2.00ms
+2016-12-08 12:31:45,816 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxtooltip.js?v=bbe9849c4fa211e7eafe607c2cec2587 (::1) 1.00ms
+2016-12-08 12:32:18,793 web.py[line:1946] WARNING 404 GET /m2 (::1) 1.00ms
+2016-12-08 12:32:27,782 web.py[line:1946] WARNING 404 GET /m2 (::1) 1.00ms
+2016-12-08 12:32:30,687 web.py[line:1946] INFO 200 GET /m1/ (::1) 15.00ms
+2016-12-08 12:32:30,690 web.py[line:1524] ERROR Uncaught exception GET /m1/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch, br', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36', 'Connection': 'keep-alive', 'Cookie': 'username=admin; csrftoken=3MsoEQVlX97qpmhVB9iEyOhv5DdHTCoR; uk=20161207124458691001; JSESSIONID=C495458DC727C5232EDA7A4512ACE2FD; _xsrf=2|a0ee63fa|4c7ea5d910e8a661f450ee585616de4b|1481171352', 'Cache-Control': 'max-age=0', 'If-None-Match': '"72271ad35aed466012360b69aa872af1e470a2c9"', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1401, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "D:\Python27\lib\site-packages\tornado\stack_context.py", line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1613, in future_complete
+    f.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 267, in wrapper
+    result = func(*args, **kwargs)
+  File "main2.py", line 207, in get
+    self.finish();
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 903, in finish
+    raise RuntimeError("finish() called twice")
+RuntimeError: finish() called twice
+2016-12-08 12:32:30,713 web.py[line:1946] INFO 304 GET /static/css/bootstrap.min.css?v=78e7f91c0c4cca415e0683626aa23925 (::1) 4.00ms
+2016-12-08 12:32:30,716 web.py[line:1946] INFO 304 GET /static/jqwidgets/styles/jqx.custom.css?v=a389db137afebcfb0896d4b1559a2354 (::1) 1.00ms
+2016-12-08 12:32:30,719 web.py[line:1946] INFO 304 GET /static/jqwidgets/styles/jqx.base.css?v=d70f8e5e9d81e9d804edaa0d4c78ec5d (::1) 2.00ms
+2016-12-08 12:32:30,724 web.py[line:1946] INFO 304 GET /static/js/bootstrap.min.js?v=281cd50dd9f58c5550620fc148a7bc39 (::1) 2.00ms
+2016-12-08 12:32:30,733 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxscrollbar.js?v=958cac54bb8b4ce38f8983b280f86fba (::1) 7.00ms
+2016-12-08 12:32:30,737 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdata.js?v=9f1ab773caf1ff5192f1a50e7bd1acd7 (::1) 3.00ms
+2016-12-08 12:32:30,746 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxcore.js?v=cbbfdf9b2e070538347e097d6c5310c9 (::1) 3.00ms
+2016-12-08 12:32:30,747 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxbuttons.js?v=160f9be851b50717ed2d0f046e4c7bbe (::1) 1.00ms
+2016-12-08 12:32:30,752 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdata.export.js?v=65c219a14b63451386746b31e30d6af0 (::1) 2.00ms
+2016-12-08 12:32:30,753 web.py[line:1946] WARNING 404 GET /chartx/ (::1) 1.00ms
+2016-12-08 12:32:30,762 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxtooltip.js?v=bbe9849c4fa211e7eafe607c2cec2587 (::1) 5.00ms
+2016-12-08 12:32:30,766 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdatatable.js?v=484eec45ac13a164193b8437016ad56b (::1) 3.00ms
+2016-12-08 12:32:30,772 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxtreegrid.js?v=853f085dd8c40a5538425efad40383e7 (::1) 2.00ms
+2016-12-08 12:32:30,776 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdatetimeinput.js?v=8694ff25df007988cb73f5e2784c77a5 (::1) 2.00ms
+2016-12-08 12:32:30,786 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxcalendar.js?v=e6c276266bdd381536c640d3ca986e28 (::1) 3.00ms
+2016-12-08 12:32:30,790 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxmenu.js?v=31a34e4026735ada66fa7ad6ee04c9a2 (::1) 3.00ms
+2016-12-08 12:32:30,793 web.py[line:1946] INFO 302 GET /m2/ (::1) 2.00ms
+2016-12-08 12:32:30,798 web.py[line:1946] INFO 304 GET /static/jqwidgets/globalization/globalize.js?v=516fb087fd88371c8af273597e794779 (::1) 2.00ms
+2016-12-08 12:32:31,180 web.py[line:1946] WARNING 404 POST /saledata/ (::1) 1.00ms
+2016-12-08 12:32:39,036 web.py[line:1946] INFO 200 GET /m1/ (::1) 15.00ms
+2016-12-08 12:32:39,039 web.py[line:1524] ERROR Uncaught exception GET /m1/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch, br', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36', 'Connection': 'keep-alive', 'Cookie': 'username=admin; csrftoken=3MsoEQVlX97qpmhVB9iEyOhv5DdHTCoR; uk=20161207124458691001; JSESSIONID=C495458DC727C5232EDA7A4512ACE2FD; _xsrf=2|a0ee63fa|4c7ea5d910e8a661f450ee585616de4b|1481171352', 'Cache-Control': 'max-age=0', 'If-None-Match': '"d8735c28f31fef744339c9e4b6375e35b79d8d9f"', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1401, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "D:\Python27\lib\site-packages\tornado\stack_context.py", line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1613, in future_complete
+    f.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 267, in wrapper
+    result = func(*args, **kwargs)
+  File "main2.py", line 207, in get
+    self.finish();
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 903, in finish
+    raise RuntimeError("finish() called twice")
+RuntimeError: finish() called twice
+2016-12-08 12:32:39,053 web.py[line:1946] INFO 304 GET /static/css/bootstrap.min.css?v=78e7f91c0c4cca415e0683626aa23925 (::1) 2.00ms
+2016-12-08 12:32:39,056 web.py[line:1946] INFO 304 GET /static/jqwidgets/styles/jqx.custom.css?v=a389db137afebcfb0896d4b1559a2354 (::1) 2.00ms
+2016-12-08 12:32:39,059 web.py[line:1946] INFO 304 GET /static/jqwidgets/styles/jqx.base.css?v=d70f8e5e9d81e9d804edaa0d4c78ec5d (::1) 2.00ms
+2016-12-08 12:32:39,078 web.py[line:1946] INFO 304 GET /static/js/bootstrap.min.js?v=281cd50dd9f58c5550620fc148a7bc39 (::1) 14.00ms
+2016-12-08 12:32:39,088 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdata.js?v=9f1ab773caf1ff5192f1a50e7bd1acd7 (::1) 7.00ms
+2016-12-08 12:32:39,092 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxbuttons.js?v=160f9be851b50717ed2d0f046e4c7bbe (::1) 5.00ms
+2016-12-08 12:32:39,098 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxscrollbar.js?v=958cac54bb8b4ce38f8983b280f86fba (::1) 4.00ms
+2016-12-08 12:32:39,101 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxcore.js?v=cbbfdf9b2e070538347e097d6c5310c9 (::1) 2.00ms
+2016-12-08 12:32:39,118 web.py[line:1946] INFO 200 GET /m1/m2/ (::1) 17.00ms
+2016-12-08 12:32:39,127 web.py[line:1946] WARNING 404 GET /chartx/ (::1) 4.00ms
+2016-12-08 12:32:39,127 web.py[line:1524] ERROR Uncaught exception GET /m1/m2/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/m2/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch, br', 'Host': 'localhost:8889', 'Accept': 'image/webp,image/*,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'http://localhost:8889/m1/', 'Cache-Control': 'max-age=0', 'Cookie': 'username=admin; csrftoken=3MsoEQVlX97qpmhVB9iEyOhv5DdHTCoR; uk=20161207124458691001; JSESSIONID=C495458DC727C5232EDA7A4512ACE2FD; _xsrf=2|a0ee63fa|4c7ea5d910e8a661f450ee585616de4b|1481171352'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1401, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "D:\Python27\lib\site-packages\tornado\stack_context.py", line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1613, in future_complete
+    f.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 267, in wrapper
+    result = func(*args, **kwargs)
+  File "main2.py", line 207, in get
+    self.finish();
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 903, in finish
+    raise RuntimeError("finish() called twice")
+RuntimeError: finish() called twice
+2016-12-08 12:32:39,135 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdata.export.js?v=65c219a14b63451386746b31e30d6af0 (::1) 2.00ms
+2016-12-08 12:32:39,138 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdatatable.js?v=484eec45ac13a164193b8437016ad56b (::1) 2.00ms
+2016-12-08 12:32:39,144 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxtreegrid.js?v=853f085dd8c40a5538425efad40383e7 (::1) 3.00ms
+2016-12-08 12:32:39,151 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdatetimeinput.js?v=8694ff25df007988cb73f5e2784c77a5 (::1) 2.00ms
+2016-12-08 12:32:39,184 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxcalendar.js?v=e6c276266bdd381536c640d3ca986e28 (::1) 2.00ms
+2016-12-08 12:32:39,187 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxmenu.js?v=31a34e4026735ada66fa7ad6ee04c9a2 (::1) 2.00ms
+2016-12-08 12:32:39,188 web.py[line:1946] INFO 304 GET /static/jqwidgets/globalization/globalize.js?v=516fb087fd88371c8af273597e794779 (::1) 1.00ms
+2016-12-08 12:32:39,191 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxtooltip.js?v=bbe9849c4fa211e7eafe607c2cec2587 (::1) 2.00ms
+2016-12-08 12:32:39,609 web.py[line:1946] WARNING 404 POST /saledata/ (::1) 1.00ms
+2016-12-08 12:32:40,403 web.py[line:1946] INFO 200 GET /m1/ (::1) 14.00ms
+2016-12-08 12:32:40,407 web.py[line:1524] ERROR Uncaught exception GET /m1/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch, br', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36', 'Connection': 'keep-alive', 'Cookie': 'username=admin; csrftoken=3MsoEQVlX97qpmhVB9iEyOhv5DdHTCoR; uk=20161207124458691001; JSESSIONID=C495458DC727C5232EDA7A4512ACE2FD; _xsrf=2|a0ee63fa|4c7ea5d910e8a661f450ee585616de4b|1481171352', 'Cache-Control': 'max-age=0', 'If-None-Match': '"8b0c0e5b030908f0e8468613750d25da506c2c2a"', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1401, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "D:\Python27\lib\site-packages\tornado\stack_context.py", line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1613, in future_complete
+    f.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 267, in wrapper
+    result = func(*args, **kwargs)
+  File "main2.py", line 207, in get
+    self.finish();
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 903, in finish
+    raise RuntimeError("finish() called twice")
+RuntimeError: finish() called twice
+2016-12-08 12:32:40,420 web.py[line:1946] INFO 304 GET /static/css/bootstrap.min.css?v=78e7f91c0c4cca415e0683626aa23925 (::1) 2.00ms
+2016-12-08 12:32:40,424 web.py[line:1946] INFO 304 GET /static/jqwidgets/styles/jqx.custom.css?v=a389db137afebcfb0896d4b1559a2354 (::1) 2.00ms
+2016-12-08 12:32:40,427 web.py[line:1946] INFO 304 GET /static/jqwidgets/styles/jqx.base.css?v=d70f8e5e9d81e9d804edaa0d4c78ec5d (::1) 2.00ms
+2016-12-08 12:32:40,444 web.py[line:1946] INFO 304 GET /static/js/bootstrap.min.js?v=281cd50dd9f58c5550620fc148a7bc39 (::1) 2.00ms
+2016-12-08 12:32:40,447 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdata.js?v=9f1ab773caf1ff5192f1a50e7bd1acd7 (::1) 2.00ms
+2016-12-08 12:32:40,453 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxscrollbar.js?v=958cac54bb8b4ce38f8983b280f86fba (::1) 2.00ms
+2016-12-08 12:32:40,457 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxbuttons.js?v=160f9be851b50717ed2d0f046e4c7bbe (::1) 4.00ms
+2016-12-08 12:32:40,463 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxcore.js?v=cbbfdf9b2e070538347e097d6c5310c9 (::1) 4.00ms
+2016-12-08 12:32:40,466 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdata.export.js?v=65c219a14b63451386746b31e30d6af0 (::1) 2.00ms
+2016-12-08 12:32:40,470 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdatatable.js?v=484eec45ac13a164193b8437016ad56b (::1) 2.00ms
+2016-12-08 12:32:40,476 web.py[line:1946] INFO 304 GET /static/jqwidgets/globalization/globalize.js?v=516fb087fd88371c8af273597e794779 (::1) 1.00ms
+2016-12-08 12:32:40,479 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxtreegrid.js?v=853f085dd8c40a5538425efad40383e7 (::1) 1.00ms
+2016-12-08 12:32:40,482 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdatetimeinput.js?v=8694ff25df007988cb73f5e2784c77a5 (::1) 2.00ms
+2016-12-08 12:32:40,484 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxcalendar.js?v=e6c276266bdd381536c640d3ca986e28 (::1) 2.00ms
+2016-12-08 12:32:40,487 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxtooltip.js?v=bbe9849c4fa211e7eafe607c2cec2587 (::1) 2.00ms
+2016-12-08 12:32:40,492 web.py[line:1946] WARNING 404 GET /chartx/ (::1) 3.00ms
+2016-12-08 12:32:40,496 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxmenu.js?v=31a34e4026735ada66fa7ad6ee04c9a2 (::1) 2.00ms
+2016-12-08 12:32:40,516 web.py[line:1946] INFO 200 GET /m1/m2/ (::1) 19.00ms
+2016-12-08 12:32:40,525 web.py[line:1524] ERROR Uncaught exception GET /m1/m2/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/m2/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch, br', 'Host': 'localhost:8889', 'Accept': 'image/webp,image/*,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'http://localhost:8889/m1/', 'Cache-Control': 'max-age=0', 'If-None-Match': '"9ab022a8b4ac47469cfb317ce5d3fb453e562aa6"', 'Cookie': 'username=admin; csrftoken=3MsoEQVlX97qpmhVB9iEyOhv5DdHTCoR; uk=20161207124458691001; JSESSIONID=C495458DC727C5232EDA7A4512ACE2FD; _xsrf=2|a0ee63fa|4c7ea5d910e8a661f450ee585616de4b|1481171352'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1401, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "D:\Python27\lib\site-packages\tornado\stack_context.py", line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1613, in future_complete
+    f.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 267, in wrapper
+    result = func(*args, **kwargs)
+  File "main2.py", line 207, in get
+    self.finish();
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 903, in finish
+    raise RuntimeError("finish() called twice")
+RuntimeError: finish() called twice
+2016-12-08 12:32:40,934 web.py[line:1946] WARNING 404 POST /saledata/ (::1) 1.00ms
+2016-12-08 12:32:47,168 web.py[line:1946] INFO 200 GET /m1/ (::1) 13.00ms
+2016-12-08 12:32:47,171 web.py[line:1524] ERROR Uncaught exception GET /m1/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch, br', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36', 'Connection': 'keep-alive', 'Cookie': 'username=admin; csrftoken=3MsoEQVlX97qpmhVB9iEyOhv5DdHTCoR; uk=20161207124458691001; JSESSIONID=C495458DC727C5232EDA7A4512ACE2FD; _xsrf=2|a0ee63fa|4c7ea5d910e8a661f450ee585616de4b|1481171352', 'Cache-Control': 'max-age=0', 'If-None-Match': '"f6b431a5563a409ba523649a390fd68f35bff710"', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1401, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "D:\Python27\lib\site-packages\tornado\stack_context.py", line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1613, in future_complete
+    f.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 267, in wrapper
+    result = func(*args, **kwargs)
+  File "main2.py", line 207, in get
+    self.finish();
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 903, in finish
+    raise RuntimeError("finish() called twice")
+RuntimeError: finish() called twice
+2016-12-08 12:32:47,187 web.py[line:1946] INFO 304 GET /static/css/bootstrap.min.css?v=78e7f91c0c4cca415e0683626aa23925 (::1) 2.00ms
+2016-12-08 12:32:47,191 web.py[line:1946] INFO 304 GET /static/jqwidgets/styles/jqx.base.css?v=d70f8e5e9d81e9d804edaa0d4c78ec5d (::1) 2.00ms
+2016-12-08 12:32:47,194 web.py[line:1946] INFO 304 GET /static/jqwidgets/styles/jqx.custom.css?v=a389db137afebcfb0896d4b1559a2354 (::1) 1.00ms
+2016-12-08 12:32:47,200 web.py[line:1946] INFO 304 GET /static/js/bootstrap.min.js?v=281cd50dd9f58c5550620fc148a7bc39 (::1) 1.00ms
+2016-12-08 12:32:47,207 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdata.js?v=9f1ab773caf1ff5192f1a50e7bd1acd7 (::1) 4.00ms
+2016-12-08 12:32:47,209 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxscrollbar.js?v=958cac54bb8b4ce38f8983b280f86fba (::1) 1.00ms
+2016-12-08 12:32:47,213 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdata.export.js?v=65c219a14b63451386746b31e30d6af0 (::1) 2.00ms
+2016-12-08 12:32:47,230 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxbuttons.js?v=160f9be851b50717ed2d0f046e4c7bbe (::1) 9.00ms
+2016-12-08 12:32:47,232 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxcore.js?v=cbbfdf9b2e070538347e097d6c5310c9 (::1) 1.00ms
+2016-12-08 12:32:47,236 web.py[line:1946] WARNING 404 GET /chartx/ (::1) 1.00ms
+2016-12-08 12:32:47,244 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdatatable.js?v=484eec45ac13a164193b8437016ad56b (::1) 4.00ms
+2016-12-08 12:32:47,249 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxtreegrid.js?v=853f085dd8c40a5538425efad40383e7 (::1) 2.00ms
+2016-12-08 12:32:47,250 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdatetimeinput.js?v=8694ff25df007988cb73f5e2784c77a5 (::1) 1.00ms
+2016-12-08 12:32:47,253 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxcalendar.js?v=e6c276266bdd381536c640d3ca986e28 (::1) 2.00ms
+2016-12-08 12:32:47,256 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxtooltip.js?v=bbe9849c4fa211e7eafe607c2cec2587 (::1) 2.00ms
+2016-12-08 12:32:47,282 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxmenu.js?v=31a34e4026735ada66fa7ad6ee04c9a2 (::1) 24.00ms
+2016-12-08 12:32:47,286 web.py[line:1946] INFO 302 GET /m2/ (::1) 3.00ms
+2016-12-08 12:32:47,292 web.py[line:1946] INFO 304 GET /static/jqwidgets/globalization/globalize.js?v=516fb087fd88371c8af273597e794779 (::1) 2.00ms
+2016-12-08 12:32:47,724 web.py[line:1946] WARNING 404 POST /saledata/ (::1) 2.00ms
+2016-12-08 12:33:02,309 web.py[line:1946] INFO 302 GET /m2/ (::1) 1.00ms
+2016-12-08 12:33:23,359 autoreload.py[line:204] INFO main2.py modified; restarting server
+2016-12-08 12:33:43,749 web.py[line:1946] INFO 200 GET /m1/ (::1) 15.00ms
+2016-12-08 12:33:43,750 web.py[line:1524] ERROR Uncaught exception GET /m1/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch, br', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36', 'Connection': 'keep-alive', 'Cookie': 'username=admin; csrftoken=3MsoEQVlX97qpmhVB9iEyOhv5DdHTCoR; uk=20161207124458691001; JSESSIONID=C495458DC727C5232EDA7A4512ACE2FD; _xsrf=2|a0ee63fa|4c7ea5d910e8a661f450ee585616de4b|1481171352', 'Cache-Control': 'max-age=0', 'If-None-Match': '"f0185bd958bc3bf4df69322ed4cdc5ab0a856b8b"', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1401, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "D:\Python27\lib\site-packages\tornado\stack_context.py", line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1613, in future_complete
+    f.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 267, in wrapper
+    result = func(*args, **kwargs)
+  File "main2.py", line 207, in get
+    self.finish();
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 903, in finish
+    raise RuntimeError("finish() called twice")
+RuntimeError: finish() called twice
+2016-12-08 12:33:44,232 web.py[line:1946] INFO 304 GET /static/css/bootstrap.min.css?v=78e7f91c0c4cca415e0683626aa23925 (::1) 467.00ms
+2016-12-08 12:33:44,236 web.py[line:1946] INFO 304 GET /static/jqwidgets/styles/jqx.custom.css?v=a389db137afebcfb0896d4b1559a2354 (::1) 2.00ms
+2016-12-08 12:33:44,237 web.py[line:1946] WARNING 404 GET /chartx/ (::1) 1.00ms
+2016-12-08 12:33:44,242 web.py[line:1946] INFO 304 GET /static/js/bootstrap.min.js?v=281cd50dd9f58c5550620fc148a7bc39 (::1) 1.00ms
+2016-12-08 12:33:44,246 web.py[line:1946] INFO 304 GET /static/jqwidgets/styles/jqx.base.css?v=d70f8e5e9d81e9d804edaa0d4c78ec5d (::1) 2.00ms
+2016-12-08 12:33:44,273 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdata.export.js?v=65c219a14b63451386746b31e30d6af0 (::1) 3.00ms
+2016-12-08 12:33:44,276 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdatatable.js?v=484eec45ac13a164193b8437016ad56b (::1) 2.00ms
+2016-12-08 12:33:44,279 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxscrollbar.js?v=958cac54bb8b4ce38f8983b280f86fba (::1) 2.00ms
+2016-12-08 12:33:44,285 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxcore.js?v=cbbfdf9b2e070538347e097d6c5310c9 (::1) 3.00ms
+2016-12-08 12:33:44,286 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxtreegrid.js?v=853f085dd8c40a5538425efad40383e7 (::1) 1.00ms
+2016-12-08 12:33:44,292 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdatetimeinput.js?v=8694ff25df007988cb73f5e2784c77a5 (::1) 3.00ms
+2016-12-08 12:33:44,295 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxbuttons.js?v=160f9be851b50717ed2d0f046e4c7bbe (::1) 3.00ms
+2016-12-08 12:33:44,298 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxcalendar.js?v=e6c276266bdd381536c640d3ca986e28 (::1) 2.00ms
+2016-12-08 12:33:44,299 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxtooltip.js?v=bbe9849c4fa211e7eafe607c2cec2587 (::1) 2.00ms
+2016-12-08 12:33:44,305 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdata.js?v=9f1ab773caf1ff5192f1a50e7bd1acd7 (::1) 3.00ms
+2016-12-08 12:33:44,309 web.py[line:1946] INFO 304 GET /static/jqwidgets/globalization/globalize.js?v=516fb087fd88371c8af273597e794779 (::1) 2.00ms
+2016-12-08 12:33:44,312 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxmenu.js?v=31a34e4026735ada66fa7ad6ee04c9a2 (::1) 2.00ms
+2016-12-08 12:33:44,315 web.py[line:1946] INFO 302 GET /m2/ (::1) 0.00ms
+2016-12-08 12:33:44,753 web.py[line:1946] WARNING 404 POST /saledata/ (::1) 2.00ms
+2016-12-08 12:33:53,881 web.py[line:1946] INFO 302 GET /m2/ (::1) 1.00ms
+2016-12-08 12:33:56,207 web.py[line:1946] WARNING 404 POST /saledata/ (::1) 2.00ms
+2016-12-08 12:34:30,105 web.py[line:1946] INFO 200 GET /m1/ (::1) 17.00ms
+2016-12-08 12:34:30,108 web.py[line:1524] ERROR Uncaught exception GET /m1/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch, br', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36', 'Connection': 'keep-alive', 'Cookie': 'username=admin; csrftoken=3MsoEQVlX97qpmhVB9iEyOhv5DdHTCoR; uk=20161207124458691001; JSESSIONID=C495458DC727C5232EDA7A4512ACE2FD; _xsrf=2|a0ee63fa|4c7ea5d910e8a661f450ee585616de4b|1481171352', 'Cache-Control': 'max-age=0', 'If-None-Match': '"9a4e7c55758b9f5a550b7d6777542683e95b4df8"', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1401, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "D:\Python27\lib\site-packages\tornado\stack_context.py", line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1613, in future_complete
+    f.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 267, in wrapper
+    result = func(*args, **kwargs)
+  File "main2.py", line 207, in get
+    self.finish();
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 903, in finish
+    raise RuntimeError("finish() called twice")
+RuntimeError: finish() called twice
+2016-12-08 12:34:30,124 web.py[line:1946] INFO 304 GET /static/css/bootstrap.min.css?v=78e7f91c0c4cca415e0683626aa23925 (::1) 3.00ms
+2016-12-08 12:34:30,127 web.py[line:1946] INFO 304 GET /static/jqwidgets/styles/jqx.base.css?v=d70f8e5e9d81e9d804edaa0d4c78ec5d (::1) 2.00ms
+2016-12-08 12:34:30,130 web.py[line:1946] INFO 304 GET /static/jqwidgets/styles/jqx.custom.css?v=a389db137afebcfb0896d4b1559a2354 (::1) 2.00ms
+2016-12-08 12:34:30,141 web.py[line:1946] INFO 304 GET /static/js/bootstrap.min.js?v=281cd50dd9f58c5550620fc148a7bc39 (::1) 2.00ms
+2016-12-08 12:34:30,144 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxbuttons.js?v=160f9be851b50717ed2d0f046e4c7bbe (::1) 1.00ms
+2016-12-08 12:34:30,148 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdata.export.js?v=65c219a14b63451386746b31e30d6af0 (::1) 2.00ms
+2016-12-08 12:34:30,150 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxscrollbar.js?v=958cac54bb8b4ce38f8983b280f86fba (::1) 2.00ms
+2016-12-08 12:34:30,151 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdata.js?v=9f1ab773caf1ff5192f1a50e7bd1acd7 (::1) 1.00ms
+2016-12-08 12:34:30,154 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxcore.js?v=cbbfdf9b2e070538347e097d6c5310c9 (::1) 2.00ms
+2016-12-08 12:34:30,157 web.py[line:1946] WARNING 404 GET /chartx/ (::1) 1.00ms
+2016-12-08 12:34:30,163 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdatatable.js?v=484eec45ac13a164193b8437016ad56b (::1) 4.00ms
+2016-12-08 12:34:30,165 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxtreegrid.js?v=853f085dd8c40a5538425efad40383e7 (::1) 2.00ms
+2016-12-08 12:34:30,168 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxdatetimeinput.js?v=8694ff25df007988cb73f5e2784c77a5 (::1) 2.00ms
+2016-12-08 12:34:30,171 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxcalendar.js?v=e6c276266bdd381536c640d3ca986e28 (::1) 2.00ms
+2016-12-08 12:34:30,177 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxtooltip.js?v=bbe9849c4fa211e7eafe607c2cec2587 (::1) 3.00ms
+2016-12-08 12:34:30,180 web.py[line:1946] INFO 304 GET /static/jqwidgets/jqxmenu.js?v=31a34e4026735ada66fa7ad6ee04c9a2 (::1) 1.00ms
+2016-12-08 12:34:30,181 web.py[line:1946] INFO 302 GET /m2/ (::1) 1.00ms
+2016-12-08 12:34:30,184 web.py[line:1946] INFO 304 GET /static/jqwidgets/globalization/globalize.js?v=516fb087fd88371c8af273597e794779 (::1) 2.00ms
+2016-12-08 12:34:30,644 web.py[line:1946] WARNING 404 POST /saledata/ (::1) 2.00ms
+2016-12-08 12:37:52,811 web.py[line:1946] INFO 200 GET /m1/ (::1) 15.00ms
+2016-12-08 12:37:52,813 web.py[line:1524] ERROR Uncaught exception GET /m1/ (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/m1/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch, br', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36', 'Connection': 'keep-alive', 'Cookie': 'username=admin; csrftoken=3MsoEQVlX97qpmhVB9iEyOhv5DdHTCoR; uk=20161207124458691001; JSESSIONID=C495458DC727C5232EDA7A4512ACE2FD; _xsrf=2|a0ee63fa|4c7ea5d910e8a661f450ee585616de4b|1481171352', 'Pragma': 'no-cache', 'Cache-Control': 'no-cache', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1401, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "D:\Python27\lib\site-packages\tornado\stack_context.py", line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1613, in future_complete
+    f.result()
+  File "D:\Python27\lib\site-packages\tornado\concurrent.py", line 232, in result
+    raise_exc_info(self._exc_info)
+  File "D:\Python27\lib\site-packages\tornado\gen.py", line 267, in wrapper
+    result = func(*args, **kwargs)
+  File "main2.py", line 207, in get
+    self.finish();
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 903, in finish
+    raise RuntimeError("finish() called twice")
+RuntimeError: finish() called twice
+2016-12-08 12:37:52,835 web.py[line:1946] INFO 200 GET /static/css/bootstrap.min.css?v=78e7f91c0c4cca415e0683626aa23925 (::1) 3.00ms
+2016-12-08 12:37:52,838 web.py[line:1946] INFO 200 GET /static/jqwidgets/styles/jqx.custom.css?v=a389db137afebcfb0896d4b1559a2354 (::1) 2.00ms
+2016-12-08 12:37:52,844 web.py[line:1946] INFO 200 GET /static/jqwidgets/styles/jqx.base.css?v=d70f8e5e9d81e9d804edaa0d4c78ec5d (::1) 4.00ms
+2016-12-08 12:37:52,859 web.py[line:1946] INFO 200 GET /static/jqwidgets/jqxcore.js?v=cbbfdf9b2e070538347e097d6c5310c9 (::1) 2.00ms
+2016-12-08 12:37:52,865 web.py[line:1946] INFO 200 GET /static/js/bootstrap.min.js?v=281cd50dd9f58c5550620fc148a7bc39 (::1) 3.00ms
+2016-12-08 12:37:52,868 web.py[line:1946] WARNING 404 GET /chartx/ (::1) 1.00ms
+2016-12-08 12:37:52,871 web.py[line:1946] INFO 200 GET /static/jqwidgets/jqxdata.js?v=9f1ab773caf1ff5192f1a50e7bd1acd7 (::1) 3.00ms
+2016-12-08 12:37:52,875 web.py[line:1946] INFO 200 GET /static/jqwidgets/jqxdata.export.js?v=65c219a14b63451386746b31e30d6af0 (::1) 2.00ms
+2016-12-08 12:37:52,878 web.py[line:1946] INFO 200 GET /static/jqwidgets/jqxscrollbar.js?v=958cac54bb8b4ce38f8983b280f86fba (::1) 3.00ms
+2016-12-08 12:37:52,884 web.py[line:1946] INFO 200 GET /static/jqwidgets/jqxbuttons.js?v=160f9be851b50717ed2d0f046e4c7bbe (::1) 2.00ms
+2016-12-08 12:37:52,888 web.py[line:1946] INFO 200 GET /static/jqwidgets/jqxtreegrid.js?v=853f085dd8c40a5538425efad40383e7 (::1) 3.00ms
+2016-12-08 12:37:52,892 web.py[line:1946] INFO 200 GET /static/jqwidgets/jqxdatatable.js?v=484eec45ac13a164193b8437016ad56b (::1) 4.00ms
+2016-12-08 12:37:52,907 web.py[line:1946] INFO 200 GET /static/jqwidgets/globalization/globalize.js?v=516fb087fd88371c8af273597e794779 (::1) 12.00ms
+2016-12-08 12:37:52,911 web.py[line:1946] INFO 200 GET /static/jqwidgets/jqxdatetimeinput.js?v=8694ff25df007988cb73f5e2784c77a5 (::1) 3.00ms
+2016-12-08 12:37:52,915 web.py[line:1946] INFO 200 GET /static/jqwidgets/jqxcalendar.js?v=e6c276266bdd381536c640d3ca986e28 (::1) 4.00ms
+2016-12-08 12:37:52,921 web.py[line:1946] INFO 200 GET /static/jqwidgets/jqxtooltip.js?v=bbe9849c4fa211e7eafe607c2cec2587 (::1) 4.00ms
+2016-12-08 12:37:52,924 web.py[line:1946] INFO 200 GET /static/jqwidgets/jqxmenu.js?v=31a34e4026735ada66fa7ad6ee04c9a2 (::1) 3.00ms
+2016-12-08 12:37:52,930 web.py[line:1946] INFO 302 GET /m2/ (::1) 1.00ms
+2016-12-08 12:38:02,168 web.py[line:1946] INFO 200 GET /static/jqwidgets/styles/images/icon-calendar.png (::1) 1.00ms
+2016-12-08 12:38:02,171 web.py[line:1946] INFO 200 GET /static/jqwidgets/styles/images/icon-time.png (::1) 2.00ms
+2016-12-08 12:38:02,237 web.py[line:1946] WARNING 404 POST /saledata/ (::1) 1.00ms

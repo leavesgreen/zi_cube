@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ static_url("css/bootstrap.min.css") }}" rel="stylesheet">
+
+    <!-- jQWidgets CSS -->
+    <link href=" {{ static_url("jqwidgets/styles/jqx.base.css") }} " rel="stylesheet">
+    <link href=" {{ static_url("jqwidgets/styles/jqx.custom.css") }} " rel="stylesheet">
+
+
+    <style>
+
+        .gridtable
+        {
+            border-collapse: collapse;
+        }
+        .gridtable tr td
+        {
+            border: 1px solid #666666;
+            padding: 1px;
+            font:9pt Arial;
+
+        }
+
+    </style>
+
+</head>
+<body>
+ <body style="text-align:left;">
+
+    <div class="container-fluid">
+
+      <div class="row" style="margin-top:20px">
+        <div class="col-md-12">
+        <!--the filter area-->
+            <div id='sel_startdate' style='float:left'>
+            </div>
+            <span style='float:left'>--</span>
+            <div id='sel_enddate' style='float:left'>
+            </div>
+            
+            <div id='div_display_sel' style='float:left'>
+            </div>
+
+            <button id="btn_query" style='height:27px'>查询</button>
+        </div>
+      </div>
+
+    <div class="row">
+        <div class="col-md-12">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12" >
+        <!--the grid area-->
+        <div id='div_grid_main'>
+
+        </div>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+        <!--the chart area-->
+            <div id='div_chart1' style='height:410px; display:none'>
+            <iframe id='iframe_chart_show'  name="iframe_chart_show" marginwidth="0" marginheight="0" frameborder="0" width="1188px" height="400px" overflow='hidden' src="/xchartx/crm3salefunnel"></iframe>
+            </div>
+
+        </div>
+      </div>
+
+    <div class="row">
+        <div class="col-md-12">
+        <!--the form area-->
+         <form action="#" method="post">
+                {{ xsrf_form_html() }}
+         </form>
+
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+
+    <!-- ================================================== -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ static_url("js/bootstrap.min.js") }} "></script>
+
+    
+    <!-- jQWidgets core JavaScript -->
+    <script src="{{ static_url("jqwidgets/jqxcore.js") }} "></script>
+    <!-- ================================================== -->
+    <script src="{{ static_url("jqwidgets/jqxdata.js") }} "></script>
+    <script src="{{ static_url("jqwidgets/jqxbuttons.js") }} "></script>
+    <script src="{{ static_url("jqwidgets/jqxscrollbar.js") }} "></script>
+
+    <script src="{{ static_url("jqwidgets/jqxdata.js") }} "></script>
+    <script src="{{ static_url("jqwidgets/jqxdata.export.js") }} "></script>
+    <script src="{{ static_url("jqwidgets/jqxdatatable.js") }} "></script>
+
+    <script src="{{ static_url("jqwidgets/jqxlistbox.js") }} "></script>
+    <script src="{{ static_url("jqwidgets/jqxdropdownlist.js") }} "></script>
+
+    <script src="{{ static_url("jqwidgets/jqxdatetimeinput.js") }} "></script>
+    <script src="{{ static_url("jqwidgets/jqxcalendar.js") }} "></script>
+    <script src="{{ static_url("jqwidgets/jqxtooltip.js") }} "></script>
+
+    <script src="{{ static_url("jqwidgets/globalization/globalize.js") }} "></script>
+    
+
+
+
+
+    <!-- Add addition JavaScript files here -->
+    <script >
+        $(document).ready(function () {
+            // your JavaScript code here.
+            STEPDIC["11"]="开场白";
+            STEPDIC["12"]="建信任";
+            STEPDIC["13"]="探需求";
+            STEPDIC["15"]="推服务";
+            STEPDIC["16"]="促成交";
+            STEPDIC["17"]="再开发";
+            
+            STEPDIC["99"]="已成交";
+
+            //startdate,默认为本月初;
+            var date_ = new Date();  
+            var year = date_.getFullYear();  
+
+            var month = date_.getMonth() + 1;  
+            var firstdate = year + '-' + month + '-01' ;
+
+
+            
+
+            $("#sel_startdate").jqxDateTimeInput({ width: '120px' ,formatString: 'yyyy-MM-dd',theme: "custom"});
+            $("#sel_enddate").jqxDateTimeInput({ width: '120px' ,formatString: 'yyyy-MM-dd',theme: "custom"});
+
+
+            $('#sel_startdate').jqxDateTimeInput('val', firstdate);
+
+            //dropdownlist
+
+            if(true){
+
+                var _data = {{ resp['combo_data'] }};
+                var _source =
+                {
+                    datatype: "json",
+                    datafields: [
+                        { name: 'id' },
+                        { name: 'name' }
+                    ],
+                    localData: _data
+                };
+                var _dataAdapter = new $.jqx.dataAdapter(_source);
+                $("#div_display_sel").jqxDropDownList({
+                    selectedIndex: 0, source: _dataAdapter, displayMember: "name", valueMember: "id", width: 300, height: 27, filterable: true,searchMode: "containsignorecase"
+                });
+            }
+
+
+            $("#btn_query").jqxButton({ theme: "custom" });
+            $("#btn_query").click(function () {
+                getdatas();
+            });
+
+            //为日期赋值之后才可执行自动加载数据;;
+            getdatas();
+            
+
+
+
+            
+
+        });
+    </script>
+</body>
+</html>
+
+<script >
+
+var RTNDATA=[];  ////keyvalue; ==>value扩展为object;
+var STEPDIC=[]; ////keyvalue; ==>value扩展为object;
+var CURRENT_KEYID='X';
+var CURRENT_CMDID='ALL';
+var MAIN_KEY='X';
+
+function getCookie(name) {
+        var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+        return r ? r[1] : undefined;
+}
+
+
+function getdatas(){
+
+    //下载时,不考虑page;暂定??
+    $.post('/xsaledata/funnel/',
+        {   
+            'startdate':$('#sel_startdate').jqxDateTimeInput('getText'),
+            'enddate':$('#sel_enddate').jqxDateTimeInput('getText'),
+            'selele': $("#div_display_sel").jqxDropDownList('getSelectedItem').value,
+            '_xsrf':getCookie("_xsrf")
+        },
+
+        function(dat) {
+
+            $('#sel_startdate').jqxDateTimeInput('val', dat["startdate"]);
+            $('#sel_enddate').jqxDateTimeInput('val', dat["enddate"]);
+
+            RTNDATA = JSON.parse(dat["rlist"]);
+            for(var i=0;i<RTNDATA.length;i++){
+                RTNDATA[i]["saleStep"] = STEPDIC[RTNDATA[i]["saleStep"]];
+            }
+
+
+            treegridDraw(RTNDATA,true);
+
+
+            CURRENT_KEYID = 'X';
+            postDrawChart(CURRENT_KEYID);
+
+            //show the chart
+            $('#div_chart1').show();
+        }
+    );
+
+};
+
+
+function treegridDraw(datas,hide_fname){
+            // prepare the data
+            var source =
+            {
+                dataType: "json",
+                dataFields: [
+                    { name: 'id', type: 'number' },
+                    { name: 'saleStep', type: 'string' },
+                    { name: 'cusCount', type: 'number' },
+                    { name: 'funnel', type: 'number' },
+                    { name: 'transRate', type: 'number' },
+                    { name: 'winRate', type: 'number' }
+                    
+                ],
+                timeout:10000,
+                id: 'id',
+                localData: datas
+            };
+            var dataAdapter = new $.jqx.dataAdapter(source);
+            // create Tree Grid
+            $("#div_grid_main").jqxDataTable(
+            {
+                source: dataAdapter,
+                pageable: false,
+                autoShowLoadElement:true,
+                sortable: true,
+                height:240,
+                width:1188,
+                pageable:false,
+                sortable:false,
+                exportSettings:{
+                    fileName: "sale_daily_report"
+                },
+                columns: [
+                  { text: 'id', dataField: 'id', width: 20 ,hidden:true},
+                  { text: '销售阶段', dataField: 'saleStep'},
+                  { text: '客户数（基础数据）', dataField: 'cusCount'},
+                  { text: '漏斗', dataField: 'funnel' },
+                  { text: '各阶段转化率', dataField: 'transRate',cellsFormat: 'p' },
+                  { text: '赢单机率', dataField: 'winRate',cellsFormat: 'p' }
+                  
+                ]
+            });
+
+
+
+};
+
+function postDrawChart(key){
+
+    var strtmp = JSON.stringify(RTNDATA);
+
+    $('#iframe_chart_show').contents().find('#_data').val(strtmp);
+    $('#iframe_chart_show').contents().find('#form_main').submit();
+}
+
+</script>

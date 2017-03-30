@@ -1,0 +1,44 @@
+2016-03-10 22:36:59,811 web.py[line:1946] WARNING 404 GET / (::1) 11.00ms
+2016-03-10 22:37:00,099 web.py[line:1946] WARNING 404 GET /favicon.ico (::1) 105.00ms
+2016-03-10 22:37:00,108 web.py[line:1946] WARNING 404 GET /favicon.ico (::1) 1.00ms
+2016-03-10 22:37:07,861 web.py[line:1946] INFO 200 GET /justnow (::1) 1.00ms
+2016-03-10 22:37:32,793 web.py[line:1524] ERROR Uncaught exception GET /sleep/10 (::1)
+HTTPServerRequest(protocol='http', host='localhost:8889', method='GET', uri='/sleep/10', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': 'localhost:8889', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:44.0) Gecko/20100101 Firefox/44.0', 'Connection': 'keep-alive'})
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1401, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "D:\Python27\lib\site-packages\tornado\web.py", line 1603, in wrapper
+    result = method(self, *args, **kwargs)
+  File "main2.py", line 72, in wrapper
+    EXECUTOR.submit(
+NameError: global name 'EXECUTOR' is not defined
+2016-03-10 22:37:32,812 web.py[line:1946] ERROR 500 GET /sleep/10 (::1) 19.00ms
+2016-03-10 22:37:58,698 autoreload.py[line:204] INFO main2.py modified; restarting server
+2016-03-10 22:38:04,223 ioloop.py[line:629] ERROR Exception in callback <functools.partial object at 0x0000000004B2C7C8>
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\tornado\ioloop.py", line 600, in _run_callback
+    ret = callback()
+  File "D:\Python27\lib\site-packages\tornado\stack_context.py", line 275, in null_wrapper
+    return fn(*args, **kwargs)
+  File "main2.py", line 70, in callback
+    self.write(future.result())
+  File "D:\Python27\lib\site-packages\concurrent\futures\_base.py", line 398, in result
+    return self.__get_result()
+  File "D:\Python27\lib\site-packages\concurrent\futures\thread.py", line 55, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "main2.py", line 92, in get
+    time.sleep(float(n))
+NameError: global name 'time' is not defined
+2016-03-10 22:39:05,503 web.py[line:1946] INFO 200 GET /sleep/2 (::1) 2003.00ms
+2016-03-10 22:39:13,321 web.py[line:1946] INFO 200 GET /sleep/3 (::1) 3001.00ms
+2016-03-10 22:39:44,938 web.py[line:1946] INFO 200 GET /sleep/1 (::1) 1002.00ms
+2016-03-10 22:39:45,674 web.py[line:1946] INFO 200 GET /sleep/3 (::1) 3002.00ms
+2016-03-10 22:40:15,561 web.py[line:1946] INFO 200 GET /sleep_async/1 (::1) 1002.00ms
+2016-03-10 22:40:16,730 web.py[line:1946] INFO 200 GET /sleep_async/6 (::1) 6002.00ms
+2016-03-10 22:41:36,605 web.py[line:1946] INFO 200 GET /sleep_async/1 (::1) 1003.00ms
+2016-03-10 22:41:40,538 web.py[line:1946] INFO 200 GET /sleep_async/6 (::1) 6001.00ms
+2016-03-10 22:41:48,186 web.py[line:1946] INFO 200 GET /sleep_async/1 (::1) 1001.00ms
+2016-03-10 22:41:52,345 web.py[line:1946] INFO 200 GET /sleep_async/6 (::1) 6002.00ms
+2016-03-10 22:42:01,842 web.py[line:1946] INFO 200 GET /sleep_async/1 (::1) 1001.00ms
+2016-03-10 22:42:03,364 web.py[line:1946] INFO 200 GET /sleep_async/2 (::1) 2002.00ms
+2016-03-10 22:42:06,201 web.py[line:1946] INFO 200 GET /sleep_async/6 (::1) 6001.00ms

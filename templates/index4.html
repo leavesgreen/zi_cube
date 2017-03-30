@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ static_url("css/bootstrap.min.css") }}" rel="stylesheet">
+    <!-- jQWidgets CSS -->
+    <link href=" {{ static_url("jqwidgets/styles/jqx.base.css") }} " rel="stylesheet">
+    <link href=" {{ static_url("jqwidgets/styles/jqx.custom.css") }} " rel="stylesheet">
+    <!--<link href=" {{ static_url("jqwidgets/styles/jqx.bootstrap.css") }} " rel="stylesheet">-->
+
+
+    <style>
+        .conditionalFormatting {
+            background: white !important;
+        }
+        .gridtable
+        {
+            border-collapse: collapse;
+        }
+        .gridtable tr td
+        {
+            border: 1px solid #666666;
+            padding: 1px;
+            font:9pt Arial;
+
+        }
+
+    </style>
+
+</head>
+<body>
+ <body style="text-align:left;">
+
+    <div class="container-fluid">
+
+      <div class="row" style="margin-top:20px">
+        <div class="col-md-12">
+        <!--the filter area-->
+            <div id='sel_enddate' style='float:left'>
+            </div>
+            <div style='float:left'>
+            <button id="btn_query" style='height:27px'>查询</button>
+            </div>
+            <div style='clear:both'></div>
+        </div>
+      </div>
+      <div class="row" style="margin-top:10px;margin-bottom:10px">
+        <div class="col-md-12">
+            <!--the filter area-->
+            <div>
+                <table class='gridtable'>
+                    <tr>
+                        <td>已选择日期:</td><td style='color:red;'></td>
+                        <td>本月工作天数:</td><td style='color:red; width:30px '></td>
+                        <td>已工作天数:</td><td style='color:red; width:30px'></td>
+                        <td>剩余工作天数:</td><td style='color:red; width:30px'></td>
+                        <td>截止今天正常完成率:</td><td style='color:red; width:30px'></td>
+                    </tr>
+                </table>
+         </div>
+
+        </div>
+      </div>
+        <div class="row">
+        <div class="col-md-12">
+            <div id='div_display_sel'>
+                
+            </div>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12" >
+        <!--the grid area-->
+        <div id='div_grid_main'>
+
+        </div>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+        <!--the chart area-->
+            <div id='div_chart1' style='height:410px; display:none'>
+            <iframe id='iframe_chart_show'  name="iframe_chart_show" marginwidth="0" marginheight="0" frameborder="0" width="1188px" height="400px" overflow='hidden' src="/chartx/"></iframe>
+            </div>
+
+        </div>
+      </div>
+
+    <div class="row">
+        <div class="col-md-12">
+        <!--the form area-->
+         <form action="#" method="post">
+                {{ xsrf_form_html() }}
+         </form>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div style="border:1px solid #aaa; min-width:200px; min-height:200px; ">
+        <a href='/m2/'> i am a link</a>
+        <img alt="img"  src="/m2/"/>
+    </div>
+
+
+
+
+    <!-- ================================================== -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ static_url("js/bootstrap.min.js") }} "></script>
+    <!-- jQWidgets core JavaScript -->
+    <script src="{{ static_url("jqwidgets/jqxcore.js") }} "></script>
+    <!-- ================================================== -->
+    <script src="{{ static_url("jqwidgets/jqxdata.js") }} "></script>
+    <script src="{{ static_url("jqwidgets/jqxbuttons.js") }} "></script>
+    <script src="{{ static_url("jqwidgets/jqxscrollbar.js") }} "></script>
+
+    <script src="{{ static_url("jqwidgets/jqxdata.js") }} "></script>
+    <script src="{{ static_url("jqwidgets/jqxdata.export.js") }} "></script>
+
+    <script src="{{ static_url("jqwidgets/jqxdatatable.js") }} "></script>
+    <script src="{{ static_url("jqwidgets/jqxtreegrid.js") }} "></script>
+    <script src="{{ static_url("jqwidgets/jqxcore.js") }} "></script>
+    <script src="{{ static_url("jqwidgets/jqxdatetimeinput.js") }} "></script>
+    <script src="{{ static_url("jqwidgets/jqxcalendar.js") }} "></script>
+    <script src="{{ static_url("jqwidgets/jqxtooltip.js") }} "></script>
+    <script src="{{ static_url("jqwidgets/globalization/globalize.js") }} "></script>
+    <script src="{{ static_url("jqwidgets/jqxmenu.js") }} "></script>
+
+
+
+
+
+    <!-- Add addition JavaScript files here -->
+    <script >
+        $(document).ready(function () {
+            // your JavaScript code here.
+            $("#sel_enddate").jqxDateTimeInput({ width: '300px', height: '25px' ,formatString: 'yyyy-MM-dd',theme: "custom" });
+
+            bindmenu();
+
+
+            $("#btn_query").jqxButton({theme: "custom" });
+            $("#btn_query").click(function () {
+                getdatas();
+            });
+
+            getdatas();
+            
+
+
+
+            
+
+        });
+    </script>
+</body>
+</html>
+
+<script >
+
+var RTNDATA=[];
+var CURRENT_KEYID='X';
+var CURRENT_CMDID='ALL';
+var MAIN_KEY='X'
+
+function getCookie(name) {
+        var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+        return r ? r[1] : undefined;
+}
+
+function bindmenu(){
+//combox
+    var menu_data = [
+        {
+            "id": "1",
+            "text": "显示",
+            "parentid": "-1",
+            "subMenuWidth": '120px'
+        },
+        {
+            "id": "2",
+            "text": "导出",
+            "parentid": "-1"
+        },
+        {
+            "id": "ALL",
+            "parentid": "1",
+            "text": "All"
+        },
+        {
+            "id": "AREA",
+            "parentid": "1",
+            "text": "仅区域"
+        },
+        {
+            "id": "DEPT",
+            "parentid": "1",
+            "text": "仅部门"
+        },
+        {
+            "id": "GROUP",
+            "parentid": "1",
+            "text": "仅小组"
+        },
+         {
+            "id": "EMP",
+            "parentid": "1",
+            "text": "仅个人"
+        }
+    ];
+
+    var menu_source ={
+            datatype: "json",
+            datafields: [
+                { name: 'id' },
+                { name: 'parentid' },
+                { name: 'text' },
+                { name: 'subMenuWidth' }
+            ],
+            id: 'id',
+            localdata: menu_data
+        };
+
+    var dataAdapter = new $.jqx.dataAdapter(menu_source);
+    dataAdapter.dataBind();
+    var records = dataAdapter.getRecordsHierarchy('id', 'parentid', 'items', [{ name: 'text', map: 'label'}]);
+    $('#div_display_sel').jqxMenu({ source: records, height: 30,  width: '120px' ,theme: "custom" });
+        $("#div_display_sel").on('itemclick', function (event) {
+            var cmd_id  = event.args.id;
+            if (cmd_id==1){
+                return 0;
+            }
+            else if (cmd_id==2){
+                $("#div_grid_main").jqxTreeGrid('exportData', 'xls');
+            }
+            else{
+            //display swith
+                swithDataDisp(cmd_id);
+                return 0;
+            }
+             
+        });
+}
+
+function swithDataDisp(cmd_id){
+
+    if (cmd_id == CURRENT_CMDID){
+        return 0;
+    }
+
+    if (cmd_id=="ALL"){
+        
+        treegridDraw(RTNDATA,true);
+        CURRENT_CMDID = cmd_id;
+
+        //DRAW CHART
+        postDrawChart(MAIN_KEY);
+
+        return 0;
+    }
+
+    var tmp =new Array();
+    var k=0;
+    for(var i=0;i<RTNDATA.length;i++){
+        var x=RTNDATA[i];
+        if (x['key_id'].substr(0,cmd_id.length)==cmd_id){
+            tmp[k]=x;
+            k++;
+        }
+    }
+
+    treegridDraw(tmp,true);
+    CURRENT_CMDID = cmd_id;
+
+
+    if (tmp.length>0){
+        strtmp = JSON.stringify(tmp);
+        //draw chart
+        $('#iframe_chart_show').contents().find('#_data').val(strtmp);
+        $('#iframe_chart_show').contents().find('#form_main').submit();
+
+        CURRENT_KEYID = cmd_id;
+    }
+
+}
+
+function getdatas(){
+
+    //下载时,不考虑page;暂定??
+    $.post('/saledata/',
+        {
+            'enddate':$('#sel_enddate').jqxDateTimeInput('getText'),
+            '_xsrf':getCookie("_xsrf")
+        },
+
+        function(dat) {
+            $('#sel_enddate').jqxDateTimeInput('val', dat["enddate"]);
+
+            var tds = $('.gridtable td');
+
+            tds.eq(1).text(dat["enddate"]);
+            tds.eq(3).text(dat["workdic"]['alldays']);
+            tds.eq(5).text(dat["workdic"]['pastdays']);
+            tds.eq(7).text(dat["workdic"]['leftdays']);
+            tds.eq(9).text(dat["workdic"]['finishrate']+'%');
+
+            RTNDATA = JSON.parse(dat["rlist"]);
+            treegridDraw(dat["rlist"],true);
+
+            //post the chart
+            if (RTNDATA.length==0){
+                CURRENT_KEYID = 'X';
+                postDrawChart(CURRENT_KEYID);
+            }
+            else{
+                MAIN_KEY = dat['main_key'];
+                postDrawChart(MAIN_KEY);
+            }
+
+            //show the chart
+            $('#div_chart1').show();
+
+        }
+    );
+
+};
+
+
+function treegridDraw(datas,hide_fname){
+
+    var cellsRendererFunction = function (row, dataField, cellValue, rowData, cellText) {
+                var cellValue = rowData[dataField];
+                if (cellValue >=100) {
+                    return "<span style='background-color: #80ff00; cursor:pointer; text-decoration:underline'>" + cellText + "</span>";
+                }
+                else if (cellValue >=80){
+                    return "<span style='background-color: #ffff64;cursor:pointer; text-decoration:underline'>" + cellText + "</span>";
+                }
+                else if (cellValue >=50){
+                    return "<span style='background-color: #ff6464;cursor:pointer; text-decoration:underline '>" + cellText + "</span>";
+                }
+                else {
+                    return "<span style='background-color: #b9b9b9;cursor:pointer; text-decoration:underline'>" + cellText + "</span>";
+                }
+                
+            };
+
+    //var datas = {//{ rlist }} ;
+
+            // prepare the data
+            var source =
+            {
+                dataType: "json",
+                dataFields: [
+                    { name: 'key_id', type: 'string' },
+                    { name: 'key_fid', type: 'string' },
+                    { name: 'key_fname', type: 'string' },
+                    { name: 'key_name', type: 'string' },
+                    { name: 'main_per', type: 'string' },
+                    { name: 'budget_day', type: 'number' },
+                    { name: 'actual_day', type: 'number' },
+                    { name: 'budget_mon', type: 'number' },
+                    { name: 'actual_mon_accum', type: 'number' },
+                    { name: 'rate_got', type: 'number' },
+                    { name: 'rate_color_got', type: 'number' },
+                    { name: 'per_count', type: 'number' },
+                    { name: 'avg_per_actual_mon', type: 'number' }
+                    
+                ],
+                timeout:10000,
+                hierarchy:
+                {
+                    keyDataField: { name: 'key_id' },
+                    parentDataField: { name: 'key_fid' }
+                },
+                id: 'key_id',
+                root:'value',
+                //url:'/saledata/?'
+                localData: datas
+            };
+            var dataAdapter = new $.jqx.dataAdapter(source);
+            // create Tree Grid
+            $("#div_grid_main").jqxTreeGrid(
+            {
+                source: dataAdapter,
+                autoShowLoadElement:true,
+                sortable: true,
+                width:1186,
+                height:300,
+                exportSettings:{
+                    fileName: "sale_daily_report"
+                },
+                ready: function()
+                {
+                    $("#div_grid_main").jqxTreeGrid('expandRow', 'all');
+                },
+                columns: [
+                  { text: '部门/人员名称', dataField: 'key_name'  },
+                  { text: '上级部门名称', dataField: 'key_fname' ,hidden:hide_fname},
+                  { text: '负责人', dataField: 'main_per' },
+                  { text: '本日目标', dataField: 'budget_day', cellsFormat: 'd' },
+                  { text: '今日合同', dataField: 'actual_day', cellsFormat: 'd' },
+                  { text: '本月目标', dataField: 'budget_mon',cellsFormat: 'd'},
+                  { text: '合同月累计', dataField: 'actual_mon_accum', cellsFormat: 'd' },
+                  { text: '月达成率', dataField: 'rate_got', cellsFormat: 'p',cellsRenderer: cellsRendererFunction},
+                  { text: '月颜色完成率', dataField: 'rate_color_got', cellsFormat: 'p', cellsRenderer: cellsRendererFunction},
+                  { text: '总人数', dataField: 'per_count', width: 100 },
+                  { text: '平均人效', dataField: 'avg_per_actual_mon', cellsFormat: 'd' }
+                  
+                ]
+            });
+
+            $("#div_grid_main").on('rowClick',
+                function(event){
+    // event args.
+                    var args = event.args;
+                    // row data.
+                    var row = args.row;
+                    // row key.
+                    var key = args.key;
+
+                    //alert(source.localData);
+                    // data field
+                    var dataField = args.dataField;
+                    
+
+                    if ((dataField=='rate_got' || dataField=='rate_color_got') && key!=CURRENT_KEYID) {
+                        postDrawChart(key);
+                    }
+                    else{
+                        return 0;
+                    }
+
+                    // original click event.
+                    //var clickEvent = args.originalEvent;
+                    //alert(clickEvent);
+                }
+            );
+
+
+};
+
+function postDrawChart(key){
+
+    var strtmp = ''
+
+    if(key!='X'){
+        var tmp = new Array();
+        var k=0;
+        for(var i=0;i<RTNDATA.length;i++){
+            var x=RTNDATA[i];
+            if (x['key_id']==key|| x['key_fid']==key){
+                tmp[k]=x;
+                k++;
+            }
+            
+        }
+        strtmp = JSON.stringify(tmp);
+    }
+
+    $('#iframe_chart_show').contents().find('#_data').val(strtmp);
+    $('#iframe_chart_show').contents().find('#form_main').submit();
+    CURRENT_KEYID = key;
+}
+
+</script>

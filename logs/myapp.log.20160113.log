@@ -1,0 +1,190 @@
+2016-01-13 11:58:27,832 web.py[line:1825] INFO 200 GET /report/?crm3u=10022 (::1) 796.00ms
+2016-01-13 11:58:27,976 web.py[line:1825] INFO 200 GET /static/css/bootstrap.min.css?v=78e7f91c0c4cca415e0683626aa23925 (::1) 126.00ms
+2016-01-13 11:58:27,980 web.py[line:1825] INFO 200 GET /static/jqwidgets/styles/jqx.base.css?v=d70f8e5e9d81e9d804edaa0d4c78ec5d (::1) 2.00ms
+2016-01-13 11:58:27,986 web.py[line:1825] INFO 200 GET /static/jqwidgets/styles/jqx.custom.css?v=a389db137afebcfb0896d4b1559a2354 (::1) 1.00ms
+2016-01-13 11:58:27,990 web.py[line:1825] INFO 200 GET /static/js/bootstrap.min.js?v=281cd50dd9f58c5550620fc148a7bc39 (::1) 1.00ms
+2016-01-13 11:58:27,994 web.py[line:1825] INFO 200 GET /static/jqwidgets/jqxcore.js?v=cbbfdf9b2e070538347e097d6c5310c9 (::1) 2.00ms
+2016-01-13 11:58:27,999 web.py[line:1825] INFO 200 GET /static/jqwidgets/jqxdata.js?v=9f1ab773caf1ff5192f1a50e7bd1acd7 (::1) 2.00ms
+2016-01-13 11:58:28,006 web.py[line:1825] INFO 200 GET /static/jqwidgets/jqxscrollbar.js?v=958cac54bb8b4ce38f8983b280f86fba (::1) 0.00ms
+2016-01-13 11:58:28,007 web.py[line:1825] INFO 200 GET /static/jqwidgets/jqxdata.export.js?v=65c219a14b63451386746b31e30d6af0 (::1) 1.00ms
+2016-01-13 11:58:28,010 web.py[line:1825] INFO 200 GET /static/jqwidgets/jqxdatatable.js?v=484eec45ac13a164193b8437016ad56b (::1) 1.00ms
+2016-01-13 11:58:28,013 web.py[line:1825] INFO 200 GET /static/jqwidgets/jqxtreegrid.js?v=853f085dd8c40a5538425efad40383e7 (::1) 1.00ms
+2016-01-13 11:58:28,016 web.py[line:1825] INFO 200 GET /static/jqwidgets/jqxdatetimeinput.js?v=8694ff25df007988cb73f5e2784c77a5 (::1) 1.00ms
+2016-01-13 11:58:28,019 web.py[line:1825] INFO 200 GET /static/jqwidgets/jqxbuttons.js?v=160f9be851b50717ed2d0f046e4c7bbe (::1) 1.00ms
+2016-01-13 11:58:28,022 web.py[line:1825] INFO 200 GET /static/jqwidgets/jqxcalendar.js?v=e6c276266bdd381536c640d3ca986e28 (::1) 1.00ms
+2016-01-13 11:58:28,025 web.py[line:1825] INFO 200 GET /static/jqwidgets/jqxtooltip.js?v=bbe9849c4fa211e7eafe607c2cec2587 (::1) 1.00ms
+2016-01-13 11:58:28,026 web.py[line:1825] INFO 200 GET /static/jqwidgets/globalization/globalize.js?v=516fb087fd88371c8af273597e794779 (::1) 1.00ms
+2016-01-13 11:58:28,029 web.py[line:1825] INFO 200 GET /static/jqwidgets/jqxmenu.js?v=31a34e4026735ada66fa7ad6ee04c9a2 (::1) 1.00ms
+2016-01-13 11:58:28,226 web.py[line:2489] ERROR Could not open static file 'D:\\temp\\zi_charts\\static\\echarts\\js'
+2016-01-13 11:58:28,227 web.py[line:2489] ERROR Could not open static file 'D:\\temp\\zi_charts\\static\\echarts\\theme'
+2016-01-13 11:58:28,289 web.py[line:1825] INFO 200 GET /chartx/ (::1) 258.00ms
+2016-01-13 11:58:30,776 web.py[line:1825] INFO 200 POST /saledata/ (::1) 2486.00ms
+2016-01-13 11:58:30,785 web.py[line:1825] INFO 200 GET /static/jqwidgets/styles/images/icon-time.png (::1) 3.00ms
+2016-01-13 11:58:30,790 web.py[line:1825] INFO 200 GET /static/echarts/asset/css/bootstrap.css?v=03cbc5dc0b5b117264ae74515cd3fb76 (::1) 3.00ms
+2016-01-13 11:58:30,796 web.py[line:1825] INFO 200 GET /static/jqwidgets/styles/images/icon-calendar.png (::1) 2.00ms
+2016-01-13 11:58:30,802 web.py[line:1825] INFO 200 GET /static/echarts/asset/css/carousel.css?v=77ac984dca94084f54fabeb85c891755 (::1) 1.00ms
+2016-01-13 11:58:30,806 web.py[line:1825] INFO 200 GET /static/echarts/asset/css/font-awesome.min.css?v=29331858de8c98b372bd7b51eba070e6 (::1) 1.00ms
+2016-01-13 11:58:30,812 web.py[line:1825] INFO 200 GET /static/echarts/asset/css/echartsHome.css?v=5807170fe710596c6d5f20cc9020fbfb (::1) 1.00ms
+2016-01-13 11:58:30,815 web.py[line:1825] INFO 200 GET /static/echarts/asset/css/codemirror.css?v=088b884d377afd491572369ec3d67ac2 (::1) 1.00ms
+2016-01-13 11:58:30,819 web.py[line:1825] INFO 200 GET /static/echarts/asset/css/monokai.css?v=431c5ba24a157809c1ccc63a4dba407f (::1) 1.00ms
+2016-01-13 11:58:30,822 web.py[line:1825] INFO 200 GET /static/echarts/js/echarts.js?v=e86dbacf1e218b63f99bfd035c655805 (::1) 2.00ms
+2016-01-13 11:58:30,825 web.py[line:1825] INFO 200 GET /static/echarts/asset/js/codemirror.js?v=a1b4c9e70ce14bee8bfa81ab58679130 (::1) 2.00ms
+2016-01-13 11:58:30,828 web.py[line:1825] INFO 200 GET /static/echarts/asset/js/javascript.js?v=4bc76ad2f2a29416edde73511c0c2221 (::1) 1.00ms
+2016-01-13 11:58:30,831 web.py[line:1825] INFO 200 GET /static/echarts/asset/js/jquery.min.js?v=e0e0559014b222245deb26b6ae8bd940 (::1) 1.00ms
+2016-01-13 11:58:30,834 web.py[line:1825] INFO 200 GET /static/echarts/asset/js/bootstrap.min.js?v=ba847811448ef90d98d272aeccef2a95 (::1) 1.00ms
+2016-01-13 11:58:30,844 web.py[line:1825] INFO 200 GET /static/echarts/asset/js/echartsHome.js?v=72ea80ce06327443791d326ca6390434 (::1) 0.00ms
+2016-01-13 11:58:30,967 web.py[line:1825] INFO 200 GET /static/jqwidgets/styles/images/icon-up.png (::1) 2.00ms
+2016-01-13 11:58:30,970 web.py[line:1825] INFO 200 GET /static/jqwidgets/styles/images/icon-right.png (::1) 2.00ms
+2016-01-13 11:58:30,973 web.py[line:1825] INFO 200 GET /static/jqwidgets/styles/images/icon-down.png (::1) 1.00ms
+2016-01-13 11:58:31,006 web.py[line:1825] INFO 200 GET /static/jqwidgets/styles/images/loader.gif (::1) 32.00ms
+2016-01-13 11:58:31,007 web.py[line:1825] INFO 200 GET /static/jqwidgets/styles/images/icon-left.png (::1) 1.00ms
+2016-01-13 11:58:31,052 web.py[line:1825] INFO 200 GET /static/echarts/js//chart/line.js (::1) 8.00ms
+2016-01-13 11:58:31,075 web.py[line:1825] INFO 200 GET /static/echarts/js//chart/radar.js (::1) 22.00ms
+2016-01-13 11:58:31,089 web.py[line:1825] INFO 200 GET /static/echarts/js//chart/k.js (::1) 12.00ms
+2016-01-13 11:58:31,102 web.py[line:1825] INFO 200 GET /static/echarts/js//chart/scatter.js (::1) 12.00ms
+2016-01-13 11:58:31,119 web.py[line:1825] INFO 200 GET /static/echarts/js//chart/bar.js (::1) 15.00ms
+2016-01-13 11:58:31,128 web.py[line:1825] INFO 200 GET /static/echarts/js//chart/pie.js (::1) 6.00ms
+2016-01-13 11:58:31,138 web.py[line:1825] INFO 200 GET /static/echarts/js//chart/force.js (::1) 9.00ms
+2016-01-13 11:58:31,154 web.py[line:1825] INFO 200 GET /static/echarts/theme//macarons.js (::1) 13.00ms
+2016-01-13 11:58:31,174 web.py[line:1825] INFO 200 GET /static/echarts/js//chart/chord.js (::1) 19.00ms
+2016-01-13 11:58:31,181 web.py[line:1825] INFO 200 GET /static/echarts/js//chart/gauge.js (::1) 6.00ms
+2016-01-13 11:58:31,188 web.py[line:1825] INFO 200 GET /static/echarts/js//chart/funnel.js (::1) 6.00ms
+2016-01-13 11:58:31,196 web.py[line:1825] INFO 200 GET /static/echarts/js//chart/eventRiver.js (::1) 5.00ms
+2016-01-13 11:58:31,213 web.py[line:1825] INFO 200 GET /static/echarts/theme//helianthus.js (::1) 14.00ms
+2016-01-13 11:58:31,236 web.py[line:1825] WARNING 404 GET /favicon.ico (::1) 2.00ms
+2016-01-13 11:58:31,243 web.py[line:1825] WARNING 404 GET /favicon.ico (::1) 1.00ms
+2016-01-13 11:58:59,221 web.py[line:1825] INFO 200 GET /report/?crm3u=10022 (::1) 21.00ms
+2016-01-13 11:58:59,252 web.py[line:1825] INFO 304 GET /static/css/bootstrap.min.css?v=78e7f91c0c4cca415e0683626aa23925 (::1) 2.00ms
+2016-01-13 11:58:59,256 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxdata.js?v=9f1ab773caf1ff5192f1a50e7bd1acd7 (::1) 1.00ms
+2016-01-13 11:58:59,259 web.py[line:1825] INFO 304 GET /static/js/bootstrap.min.js?v=281cd50dd9f58c5550620fc148a7bc39 (::1) 1.00ms
+2016-01-13 11:58:59,260 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/jqx.custom.css?v=a389db137afebcfb0896d4b1559a2354 (::1) 1.00ms
+2016-01-13 11:58:59,263 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/jqx.base.css?v=d70f8e5e9d81e9d804edaa0d4c78ec5d (::1) 1.00ms
+2016-01-13 11:58:59,265 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxcore.js?v=cbbfdf9b2e070538347e097d6c5310c9 (::1) 0.00ms
+2016-01-13 11:58:59,267 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxbuttons.js?v=160f9be851b50717ed2d0f046e4c7bbe (::1) 1.00ms
+2016-01-13 11:58:59,269 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxcalendar.js?v=e6c276266bdd381536c640d3ca986e28 (::1) 1.00ms
+2016-01-13 11:58:59,272 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxscrollbar.js?v=958cac54bb8b4ce38f8983b280f86fba (::1) 0.00ms
+2016-01-13 11:58:59,273 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxdata.export.js?v=65c219a14b63451386746b31e30d6af0 (::1) 0.00ms
+2016-01-13 11:58:59,276 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxdatatable.js?v=484eec45ac13a164193b8437016ad56b (::1) 1.00ms
+2016-01-13 11:58:59,279 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxtreegrid.js?v=853f085dd8c40a5538425efad40383e7 (::1) 1.00ms
+2016-01-13 11:58:59,280 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxdatetimeinput.js?v=8694ff25df007988cb73f5e2784c77a5 (::1) 1.00ms
+2016-01-13 11:58:59,282 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxtooltip.js?v=bbe9849c4fa211e7eafe607c2cec2587 (::1) 0.00ms
+2016-01-13 11:58:59,285 web.py[line:1825] INFO 304 GET /static/jqwidgets/globalization/globalize.js?v=516fb087fd88371c8af273597e794779 (::1) 0.00ms
+2016-01-13 11:58:59,289 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxmenu.js?v=31a34e4026735ada66fa7ad6ee04c9a2 (::1) 1.00ms
+2016-01-13 11:58:59,295 web.py[line:2489] ERROR Could not open static file 'D:\\temp\\zi_charts\\static\\echarts\\js'
+2016-01-13 11:58:59,296 web.py[line:2489] ERROR Could not open static file 'D:\\temp\\zi_charts\\static\\echarts\\theme'
+2016-01-13 11:58:59,299 web.py[line:1825] INFO 200 GET /chartx/ (::1) 9.00ms
+2016-01-13 11:58:59,950 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxdata.js?v=9f1ab773caf1ff5192f1a50e7bd1acd7 (::1) 1.00ms
+2016-01-13 11:58:59,973 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxcore.js?v=cbbfdf9b2e070538347e097d6c5310c9 (::1) 1.00ms
+2016-01-13 11:59:00,056 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/icon-calendar.png (::1) 0.00ms
+2016-01-13 11:59:02,460 web.py[line:1825] INFO 200 POST /saledata/ (::1) 2400.00ms
+2016-01-13 11:59:02,470 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/icon-time.png (::1) 1.00ms
+2016-01-13 11:59:02,615 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/icon-up.png (::1) 1.00ms
+2016-01-13 11:59:02,617 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/icon-right.png (::1) 0.00ms
+2016-01-13 11:59:02,618 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/icon-left.png (::1) 0.00ms
+2016-01-13 11:59:02,621 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/icon-down.png (::1) 0.00ms
+2016-01-13 11:59:02,622 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/loader.gif (::1) 1.00ms
+2016-01-13 11:59:02,628 web.py[line:2489] ERROR Could not open static file 'D:\\temp\\zi_charts\\static\\echarts\\js'
+2016-01-13 11:59:02,631 web.py[line:2489] ERROR Could not open static file 'D:\\temp\\zi_charts\\static\\echarts\\theme'
+2016-01-13 11:59:02,632 web.py[line:1825] INFO 200 POST /chartx/ (::1) 9.00ms
+2016-01-13 11:59:16,344 web.py[line:1825] INFO 200 GET /report/?crm3u=10022 (::1) 9.00ms
+2016-01-13 11:59:16,410 web.py[line:1825] INFO 304 GET /static/css/bootstrap.min.css?v=78e7f91c0c4cca415e0683626aa23925 (::1) 1.00ms
+2016-01-13 11:59:16,414 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxbuttons.js?v=160f9be851b50717ed2d0f046e4c7bbe (::1) 1.00ms
+2016-01-13 11:59:16,417 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxcore.js?v=cbbfdf9b2e070538347e097d6c5310c9 (::1) 0.00ms
+2016-01-13 11:59:16,420 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/jqx.custom.css?v=a389db137afebcfb0896d4b1559a2354 (::1) 1.00ms
+2016-01-13 11:59:16,421 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/jqx.base.css?v=d70f8e5e9d81e9d804edaa0d4c78ec5d (::1) 0.00ms
+2016-01-13 11:59:16,426 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxdata.js?v=9f1ab773caf1ff5192f1a50e7bd1acd7 (::1) 1.00ms
+2016-01-13 11:59:16,427 web.py[line:1825] INFO 304 GET /static/js/bootstrap.min.js?v=281cd50dd9f58c5550620fc148a7bc39 (::1) 1.00ms
+2016-01-13 11:59:16,430 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxcalendar.js?v=e6c276266bdd381536c640d3ca986e28 (::1) 1.00ms
+2016-01-13 11:59:16,433 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxscrollbar.js?v=958cac54bb8b4ce38f8983b280f86fba (::1) 1.00ms
+2016-01-13 11:59:16,434 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxdata.export.js?v=65c219a14b63451386746b31e30d6af0 (::1) 0.00ms
+2016-01-13 11:59:16,437 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxdatatable.js?v=484eec45ac13a164193b8437016ad56b (::1) 1.00ms
+2016-01-13 11:59:16,440 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxtreegrid.js?v=853f085dd8c40a5538425efad40383e7 (::1) 1.00ms
+2016-01-13 11:59:16,443 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxdatetimeinput.js?v=8694ff25df007988cb73f5e2784c77a5 (::1) 1.00ms
+2016-01-13 11:59:16,444 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxtooltip.js?v=bbe9849c4fa211e7eafe607c2cec2587 (::1) 0.00ms
+2016-01-13 11:59:16,447 web.py[line:1825] INFO 304 GET /static/jqwidgets/globalization/globalize.js?v=516fb087fd88371c8af273597e794779 (::1) 1.00ms
+2016-01-13 11:59:16,450 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxmenu.js?v=31a34e4026735ada66fa7ad6ee04c9a2 (::1) 1.00ms
+2016-01-13 11:59:16,456 web.py[line:2489] ERROR Could not open static file 'D:\\temp\\zi_charts\\static\\echarts\\js'
+2016-01-13 11:59:16,457 web.py[line:2489] ERROR Could not open static file 'D:\\temp\\zi_charts\\static\\echarts\\theme'
+2016-01-13 11:59:16,460 web.py[line:1825] INFO 200 GET /chartx/ (::1) 8.00ms
+2016-01-13 11:59:16,688 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxdata.js?v=9f1ab773caf1ff5192f1a50e7bd1acd7 (::1) 1.00ms
+2016-01-13 11:59:16,763 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxcore.js?v=cbbfdf9b2e070538347e097d6c5310c9 (::1) 1.00ms
+2016-01-13 11:59:16,859 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/icon-calendar.png (::1) 1.00ms
+2016-01-13 11:59:19,270 web.py[line:1825] INFO 200 POST /saledata/ (::1) 2409.00ms
+2016-01-13 11:59:19,279 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/icon-time.png (::1) 2.00ms
+2016-01-13 11:59:19,421 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/icon-up.png (::1) 1.00ms
+2016-01-13 11:59:19,426 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/icon-right.png (::1) 1.00ms
+2016-01-13 11:59:19,427 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/icon-left.png (::1) 1.00ms
+2016-01-13 11:59:19,430 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/icon-down.png (::1) 1.00ms
+2016-01-13 11:59:19,431 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/loader.gif (::1) 1.00ms
+2016-01-13 11:59:19,438 web.py[line:2489] ERROR Could not open static file 'D:\\temp\\zi_charts\\static\\echarts\\js'
+2016-01-13 11:59:19,440 web.py[line:2489] ERROR Could not open static file 'D:\\temp\\zi_charts\\static\\echarts\\theme'
+2016-01-13 11:59:19,441 web.py[line:1825] INFO 200 POST /chartx/ (::1) 9.00ms
+2016-01-13 12:57:27,483 web.py[line:1825] INFO 200 GET /report/?crm3u=10022 (::1) 202.00ms
+2016-01-13 12:57:27,516 web.py[line:1825] INFO 304 GET /static/css/bootstrap.min.css?v=78e7f91c0c4cca415e0683626aa23925 (::1) 2.00ms
+2016-01-13 12:57:27,520 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/jqx.base.css?v=d70f8e5e9d81e9d804edaa0d4c78ec5d (::1) 2.00ms
+2016-01-13 12:57:27,523 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/jqx.custom.css?v=a389db137afebcfb0896d4b1559a2354 (::1) 1.00ms
+2016-01-13 12:57:27,526 web.py[line:1825] INFO 304 GET /static/js/bootstrap.min.js?v=281cd50dd9f58c5550620fc148a7bc39 (::1) 1.00ms
+2016-01-13 12:57:27,530 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxcore.js?v=cbbfdf9b2e070538347e097d6c5310c9 (::1) 1.00ms
+2016-01-13 12:57:27,532 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxbuttons.js?v=160f9be851b50717ed2d0f046e4c7bbe (::1) 0.00ms
+2016-01-13 12:57:27,538 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxscrollbar.js?v=958cac54bb8b4ce38f8983b280f86fba (::1) 1.00ms
+2016-01-13 12:57:27,540 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxdata.export.js?v=65c219a14b63451386746b31e30d6af0 (::1) 1.00ms
+2016-01-13 12:57:27,543 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxdatatable.js?v=484eec45ac13a164193b8437016ad56b (::1) 1.00ms
+2016-01-13 12:57:27,546 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxtreegrid.js?v=853f085dd8c40a5538425efad40383e7 (::1) 1.00ms
+2016-01-13 12:57:27,552 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxdatetimeinput.js?v=8694ff25df007988cb73f5e2784c77a5 (::1) 1.00ms
+2016-01-13 12:57:27,553 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxdata.js?v=9f1ab773caf1ff5192f1a50e7bd1acd7 (::1) 0.00ms
+2016-01-13 12:57:27,556 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxcalendar.js?v=e6c276266bdd381536c640d3ca986e28 (::1) 1.00ms
+2016-01-13 12:57:27,559 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxtooltip.js?v=bbe9849c4fa211e7eafe607c2cec2587 (::1) 0.00ms
+2016-01-13 12:57:27,561 web.py[line:1825] INFO 304 GET /static/jqwidgets/globalization/globalize.js?v=516fb087fd88371c8af273597e794779 (::1) 0.00ms
+2016-01-13 12:57:27,563 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxmenu.js?v=31a34e4026735ada66fa7ad6ee04c9a2 (::1) 1.00ms
+2016-01-13 12:57:27,654 web.py[line:2489] ERROR Could not open static file 'D:\\temp\\zi_charts\\static\\echarts\\js'
+2016-01-13 12:57:27,655 web.py[line:2489] ERROR Could not open static file 'D:\\temp\\zi_charts\\static\\echarts\\theme'
+2016-01-13 12:57:27,694 web.py[line:1825] INFO 200 GET /chartx/ (::1) 129.00ms
+2016-01-13 12:57:27,697 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxdata.js?v=9f1ab773caf1ff5192f1a50e7bd1acd7 (::1) 1.00ms
+2016-01-13 12:57:27,875 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxcore.js?v=cbbfdf9b2e070538347e097d6c5310c9 (::1) 1.00ms
+2016-01-13 12:57:28,006 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/icon-calendar.png (::1) 1.00ms
+2016-01-13 12:57:30,441 web.py[line:1825] INFO 200 POST /saledata/ (::1) 2432.00ms
+2016-01-13 12:57:30,450 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/icon-time.png (::1) 2.00ms
+2016-01-13 12:57:30,592 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/icon-up.png (::1) 1.00ms
+2016-01-13 12:57:30,598 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/icon-left.png (::1) 1.00ms
+2016-01-13 12:57:30,601 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/loader.gif (::1) 1.00ms
+2016-01-13 12:57:30,602 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/icon-down.png (::1) 1.00ms
+2016-01-13 12:57:30,605 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/icon-right.png (::1) 1.00ms
+2016-01-13 12:57:30,611 web.py[line:2489] ERROR Could not open static file 'D:\\temp\\zi_charts\\static\\echarts\\js'
+2016-01-13 12:57:30,614 web.py[line:2489] ERROR Could not open static file 'D:\\temp\\zi_charts\\static\\echarts\\theme'
+2016-01-13 12:57:30,615 web.py[line:1825] INFO 200 POST /chartx/ (::1) 10.00ms
+2016-01-13 12:58:13,687 web.py[line:2489] ERROR Could not open static file 'D:\\temp\\zi_charts\\static\\echarts\\js'
+2016-01-13 12:58:13,690 web.py[line:2489] ERROR Could not open static file 'D:\\temp\\zi_charts\\static\\echarts\\theme'
+2016-01-13 12:58:13,691 web.py[line:1825] INFO 200 POST /chartx/ (::1) 10.00ms
+2016-01-13 17:08:08,226 web.py[line:1825] INFO 200 GET /report/?crm3u=10022 (::1) 11.00ms
+2016-01-13 17:08:08,269 web.py[line:2489] ERROR Could not open static file 'D:\\temp\\zi_charts\\static\\echarts\\js'
+2016-01-13 17:08:08,270 web.py[line:2489] ERROR Could not open static file 'D:\\temp\\zi_charts\\static\\echarts\\theme'
+2016-01-13 17:08:08,273 web.py[line:1825] INFO 200 GET /chartx/ (::1) 8.00ms
+2016-01-13 17:08:08,408 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/jqx.base.css?v=d70f8e5e9d81e9d804edaa0d4c78ec5d (::1) 133.00ms
+2016-01-13 17:08:08,411 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/jqx.custom.css?v=a389db137afebcfb0896d4b1559a2354 (::1) 0.00ms
+2016-01-13 17:08:08,414 web.py[line:1825] INFO 304 GET /static/js/bootstrap.min.js?v=281cd50dd9f58c5550620fc148a7bc39 (::1) 1.00ms
+2016-01-13 17:08:08,417 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxcore.js?v=cbbfdf9b2e070538347e097d6c5310c9 (::1) 1.00ms
+2016-01-13 17:08:08,420 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxbuttons.js?v=160f9be851b50717ed2d0f046e4c7bbe (::1) 1.00ms
+2016-01-13 17:08:08,421 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxscrollbar.js?v=958cac54bb8b4ce38f8983b280f86fba (::1) 1.00ms
+2016-01-13 17:08:08,424 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxdata.export.js?v=65c219a14b63451386746b31e30d6af0 (::1) 2.00ms
+2016-01-13 17:08:08,427 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxdatatable.js?v=484eec45ac13a164193b8437016ad56b (::1) 1.00ms
+2016-01-13 17:08:08,430 web.py[line:1825] INFO 304 GET /static/css/bootstrap.min.css?v=78e7f91c0c4cca415e0683626aa23925 (::1) 1.00ms
+2016-01-13 17:08:08,433 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxdata.js?v=9f1ab773caf1ff5192f1a50e7bd1acd7 (::1) 1.00ms
+2016-01-13 17:08:08,434 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxtreegrid.js?v=853f085dd8c40a5538425efad40383e7 (::1) 0.00ms
+2016-01-13 17:08:08,436 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxdatetimeinput.js?v=8694ff25df007988cb73f5e2784c77a5 (::1) 1.00ms
+2016-01-13 17:08:08,437 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxcalendar.js?v=e6c276266bdd381536c640d3ca986e28 (::1) 1.00ms
+2016-01-13 17:08:08,443 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxtooltip.js?v=bbe9849c4fa211e7eafe607c2cec2587 (::1) 4.00ms
+2016-01-13 17:08:08,444 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxmenu.js?v=31a34e4026735ada66fa7ad6ee04c9a2 (::1) 1.00ms
+2016-01-13 17:08:08,447 web.py[line:1825] INFO 304 GET /static/jqwidgets/globalization/globalize.js?v=516fb087fd88371c8af273597e794779 (::1) 1.00ms
+2016-01-13 17:08:08,496 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxdata.js?v=9f1ab773caf1ff5192f1a50e7bd1acd7 (::1) 1.00ms
+2016-01-13 17:08:08,586 web.py[line:1825] INFO 304 GET /static/jqwidgets/jqxcore.js?v=cbbfdf9b2e070538347e097d6c5310c9 (::1) 1.00ms
+2016-01-13 17:08:11,500 web.py[line:1825] INFO 200 POST /saledata/ (::1) 2790.00ms
+2016-01-13 17:08:11,505 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/icon-time.png (::1) 1.00ms
+2016-01-13 17:08:11,509 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/icon-calendar.png (::1) 1.00ms
+2016-01-13 17:08:11,654 web.py[line:2489] ERROR Could not open static file 'D:\\temp\\zi_charts\\static\\echarts\\js'
+2016-01-13 17:08:11,654 web.py[line:2489] ERROR Could not open static file 'D:\\temp\\zi_charts\\static\\echarts\\theme'
+2016-01-13 17:08:11,657 web.py[line:1825] INFO 200 POST /chartx/ (::1) 8.00ms
+2016-01-13 17:08:11,658 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/icon-right.png (::1) 0.00ms
+2016-01-13 17:08:11,661 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/loader.gif (::1) 0.00ms
+2016-01-13 17:08:11,663 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/icon-down.png (::1) 1.00ms
+2016-01-13 17:08:11,664 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/icon-up.png (::1) 2.00ms
+2016-01-13 17:08:11,665 web.py[line:1825] INFO 304 GET /static/jqwidgets/styles/images/icon-left.png (::1) 0.00ms

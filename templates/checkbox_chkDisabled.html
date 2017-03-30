@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+	<TITLE> ZTREE DEMO - Checkbox chkDisabled</TITLE>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<!--
+	<link rel="stylesheet" href="../../../css/demo.css" type="text/css">
+	<link rel="stylesheet" href="../../../css/zTreeStyle/zTreeStyle.css" type="text/css">
+	<script type="text/javascript" src="../../../js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="../../../js/jquery.ztree.core-3.5.js"></script>
+	<script type="text/javascript" src="../../../js/jquery.ztree.excheck-3.5.js"></script>
+	-->
+	
+	<link href="{{ static_url("css/demo.css") }}" rel="stylesheet">
+	<link href="{{ static_url("css/zTreeStyle.css") }}" rel="stylesheet">
+
+    <script type="text/javascript" src="{{ static_url("js/jquery-1.4.4.min.js") }} "></script>
+
+	<script type="text/javascript" src="{{ static_url("js/jquery.ztree.core-3.5.js") }} "></script>
+	<script type="text/javascript" src="{{ static_url("js/jquery.ztree.excheck-3.5.js") }} "></script>
+
+
+
+
+	<SCRIPT type="text/javascript">
+		<!--
+		var setting = {
+			check: {
+				enable: true,
+				chkDisabledInherit: true
+			},
+			data: {
+				simpleData: {
+					enable: true
+				}
+			},
+			view: {
+				nameIsHTML: true
+			}
+		};
+
+		var zNodes ={{ dat1 }};
+
+		function disabledNode(e) {
+			var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
+			disabled = e.data.disabled,
+			nodes = zTree.getSelectedNodes(),
+			inheritParent = false, inheritChildren = false;
+			if (nodes.length == 0) {
+				alert("请先选择一个节点");
+			}
+			if (disabled) {
+				inheritParent = $("#py").attr("checked");
+				inheritChildren = $("#sy").attr("checked");
+			} else {
+				inheritParent = $("#pn").attr("checked");
+				inheritChildren = $("#sn").attr("checked");
+			}
+
+			for (var i=0, l=nodes.length; i<l; i++) {
+				zTree.setChkDisabled(nodes[i], disabled, inheritParent, inheritChildren);
+			}
+		}
+
+		$(document).ready(function(){
+			$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+			$("#disabledTrue").bind("click", {disabled: true}, disabledNode);
+			$("#disabledFalse").bind("click", {disabled: false}, disabledNode);
+			
+		});
+		//-->
+	</SCRIPT>
+</HEAD>
+
+<BODY>
+<h1>Checkbox chkDisabled 演示</h1>
+<h6>[ 文件路径: excheck/checkbox_chkDisabled.html ]</h6>
+<div class="content_wrap">
+	<div class="zTreeDemoBackground left">
+	</div>
+	<div class="right" >
+		<ul id="treeDemo" class="ztree" style="width:1200px;height:600px"></ul>
+		
+	</div>
+</div>
+</BODY>
+</HTML>

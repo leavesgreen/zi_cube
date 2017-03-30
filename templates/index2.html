@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>BRAND QUERY</title>
+
+    <!-- Bootstrap -->
+    <link href="{{ static_url("css/bootstrap.min.css") }}" rel="stylesheet">
+    <link href="{{ static_url("jquery-ui/jquery-ui.min.css") }}" rel="stylesheet" />
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+
+
+
+
+
+    <![endif]-->
+  </head>
+  <body style="text-align:left;">
+
+
+
+
+
+    <div class="container-fluid">
+      <div class="row" style="margin-top:50px">
+        <div class="col-xs-2">
+        </div>
+
+        <div class="col-xs-8">
+          <div>
+           <ul class="nav nav-pills">
+              <li role="presentation" class="active"><a href="#">商标</a></li>
+              <li role="presentation"><a href="#">专利</a></li>
+              <li role="presentation"><a href="#">版权</a></li>
+           </ul>
+          </div>
+
+          <div style="text-align:right; margin-bottom:20px; margin-top:50px">
+            <a href="#" >图形</a>
+
+            <a href="#" >高级查询</a>
+          </div>
+          <div class="input-group" style="text-align:left">
+                <span class="input-group-btn">
+                    <button id='sel_button_sq' sqtext='prod_name' type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>商标名称</span><span class="caret"></span></button>
+                    <ul class="dropdown-menu" id='sel_button_list' >
+                      <li><a href="#" sqtext='prod_name' >商标名称</a></li>
+                      <li><a href="#" sqtext='reg_org_name_cn'>申请人</a></li>
+                      <li><a href="#" sqtext='agent_name'>代理人</a></li>
+                      <li><a href="#" sqtext='brand_target_list'>小项</a></li>
+                    </ul>
+                </span>
+
+                <input type="text" class="form-control" id="txt_search" onkeypress="if (event.keyCode == 13) {newseach();}" search_stat='0'>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="newseach()" >Go!</button>
+                </span>
+
+            </div>
+          <div style="text-align:left;margin-top:10px; ">
+            <form action="#" method="post">
+            {{ xsrf_form_html() }}
+
+            <div class ='row'>
+              <div class="col-sm-12">
+                <hr/>
+                <label class="checkbox-inline">
+                <input type="checkbox" name='status_params' value="1"> 待审中
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name='status_params' value="2">已初审
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name='status_params' value="3">已注册
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name='status_params' value="4">已驳回
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name='status_params' value="5">已销亡
+                </label>
+              </div>
+              <div class="col-sm-8">
+                <hr/>
+                中文查询选项:
+                <br/>
+                 <label class="checkbox-inline">
+                <input type="checkbox" name='search_params' value="1.1"> 查拼音
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name='search_params' value="1.2"> 同音字
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name='search_params' value="1.3"> 形似字
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name='search_params' value="1.4"> 英文同义
+                </label>
+              </div>
+              <div class="col-sm-4">
+                <hr/>
+                英文查询选项:
+                <br/>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name='search_params' value="2.1"> 中文同义
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name='search_params' value="2.2"> 同音汉字
+                </label>
+              </div>
+            </div>
+            <div class ='row'>
+              <div class="col-sm-12">
+                <hr/>
+                商标分类:
+                <br/>
+                {% for k1 in range(1,46) %}
+
+              <label class="checkbox-inline">
+                <input type="checkbox" name='brand_cat_id' value="{{ k1 }}"> {{ str(k1).rjust(2,'0') }}
+              </label>
+
+              {% if k1%15==0 %}
+              <br/>
+              {% end %}
+
+              {% end %}
+              <hr/>
+              </div>
+
+            </div>
+          <div class ='row' id = 'div_loading_img' style='display:none'>
+              <div class="col-sm-12" style='text-align:center'>
+                <img src='{{ static_url("images/loading2.gif") }}' />
+              </div>
+          </div>
+          </form>
+          </div>
+          <div class ='row' id='resp_div'>
+            <div class="col-sm-4" id='resp_div_main'>
+              总记录数:<span id='result_count'></span>
+              <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>分类</th>
+                            <th>商标名称</th>
+                          </tr>
+                        </thead>
+                       <tbody>
+                      </tbody>
+                </table>
+
+                <nav>
+                <ul class="pagination pagination-sm" id='ul_pages'>
+
+                </ul>
+              </nav>
+            </div>
+            <div class="col-sm-8" id='div_brand_detail' >
+
+              <div style='height:160px;width:160px;border:1px solid #aaa;float:left' id='div_brand_img'>
+                <img style='height:158px;width:158px' src=''/>
+              </div>
+              <div style='width:80%;height:160px;margin-left:160px;'>
+                <table class="table .table-bordered">
+                  <tr>
+                    <td style='width:90px'>国际分类</td>
+                    <td id='td_brand_cat_ids'><td>
+                    <td style='width:90px'>法律状态</td>
+                    <td id='td_law_status'></td>
+                    <td style='width:90px'>初审公告</td>
+                    <td id='td_doc_audit1'></td>
+                  </tr>
+                  <tr>
+                    <td>注册号</td>
+                    <td  id='td_prod_id'><td>
+                    <td >商标中文</td>
+                    <td id='td_prod_name'></td>
+                    <td >商标拼音</td>
+                    <td id='td_prod_pinyin' ></td>
+                  </tr>
+                  <tr>
+                    <td >商标英文</td>
+                    <td id='td_prod_eng'><td>
+                    <td >商标字头</td>
+                    <td id='td_prod_brand_head'></td>
+                    <td >商标数字</td>
+                    <td id='td_prod_brand_num'></td>
+                  </tr>
+                   <tr>
+                    <td >申请日期</td>
+                    <td id='td_date_app_at'><td>
+                    <td >初审日期</td>
+                    <td id='td_date_reg_pub'></td>
+                    <td >注册日期</td>
+                    <td id='td_date_reg'></td>
+                  </tr>
+                </table>
+
+              </div>
+              <div style='width:100%'>
+              <table class="table .table-bordered">
+                  <tr>
+                    <td style='width:90px'>商标类型</td>
+                    <td><td>
+                    <td style='width:90px'>注册公告</td>
+                    <td></td>
+                    <td style='width:90px'>截止日期</td>
+                    <td id='td_date_exclusive_end'></td>
+                  </tr>
+                  <tr>
+                    <td>商标流程</td>
+                    <td><td>
+                    <td>是否可售</td>
+                    <td></td>
+                    <td>预售价格</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>注册人</td>
+                    <td colspan='5' id='td_reg_org_name_cn'></td>
+                  </tr>
+                  <tr>
+                    <td >注册地址</td>
+                    <td colspan='5' id='td_reg_org_addr_cn'></td>
+                  </tr>
+                  <tr>
+                    <td >代理组织</td>
+                    <td colspan='5' id='td_agent_name'></td>
+                  </tr>
+                  <tr>
+                    <td >使用商品</td>
+                    <td colspan='5' id='td_brand_target_list'></td>
+                  </tr>
+                  <tr>
+                    <td >备注信息</td>
+                    <td colspan='5' id='td_remark'></td>
+                  </tr>
+
+                </table>
+                </div>
+            </div>
+
+            <div class="col-sm-12" >
+
+            </div>
+          </div>
+
+        </div>
+        <div class="col-xs-2">
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ static_url("js/bootstrap.min.js") }} "></script>
+  </body>
+</html>
+
+<script>
+
+var RETDATA=[];
+var CURRPAGE=1;
+var ALLPAGES = 1;
+var PAGE_SIZE=10;
+var FIRST_PAGE=1;
+var LAW_STATUS_DIC=[];
+
+
+$(function(){
+
+     LAW_STATUS_DIC["0"]="未知-其他";
+     LAW_STATUS_DIC["1"]="申请中";
+     LAW_STATUS_DIC["2"]="已初审";
+     LAW_STATUS_DIC["3"]="已注册";
+     LAW_STATUS_DIC["4"]="已驳回";
+     LAW_STATUS_DIC["5"]="已销亡";
+     LAW_STATUS_DIC["6"]="无效-其他";
+     LAW_STATUS_DIC["3.1"]="已注册-正常";
+     LAW_STATUS_DIC["3.2"]="已注册-宽展";
+     LAW_STATUS_DIC["3.3"]="已注册-续展";
+     LAW_STATUS_DIC["3.4"]="已注册-过期";
+
+
+  $('#resp_div').hide();
+
+  $('#sel_button_list li').bind('click',function(){
+     var _sqtext = $(this).find('a').eq(0).attr('sqtext');
+     var _text = $(this).find('a').eq(0).text();
+
+     $('#sel_button_sq').attr('sqtext',_sqtext);
+     $('#sel_button_sq span').eq(0).text(_text);
+
+  });
+
+});
+
+
+function newseach()
+{
+  CURRPAGE = 1;
+   aaa();
+}
+
+function aaa()
+{
+    if ($('#txt_search').attr('search_stat')=='1')
+    {
+      return;
+    }
+
+    _sv = $('#txt_search').val(); _sp = '';_bids = '';_brandstatus='';
+
+    _sp_eles = $('[name=search_params]:checked');
+    _bids_eles = $('[name=brand_cat_id]:checked');
+
+    _brandstatus_eles = $('[name=status_params]:checked');
+
+    for(i=0;i<_sp_eles.length;i++)
+    {
+      _sp+=_sp_eles.eq(i).val()+',';
+    }
+
+    for(i=0;i<_bids_eles.length;i++)
+    {
+      _bids+=_bids_eles.eq(i).val()+',';
+    }
+
+    for(i=0;i<_brandstatus_eles.length;i++)
+    {
+      _brandstatus+=_brandstatus_eles.eq(i).val()+',';
+    }
+
+    if ($.trim(_sv)=='')
+    {
+      return;
+    }
+
+    RETDATA =[];
+
+    $('#result_count').text('');
+    $('#resp_div_main table tbody').empty();
+    $('#resp_div').hide();
+    $('#div_brand_detail').hide();
+
+
+    $('#txt_search').attr('search_stat','1'); //防止重复;
+    $('#div_loading_img').show();
+
+
+    //sq,改为parsejson; 加对于特殊字符的过滤;???
+
+
+    $.post('/ajax/search/',
+        {
+
+            '_xsrf':getCookie("_xsrf"),
+            'stdsend':'{"appkey":"galegjoa","token":"ewjlajgl32739","sessionid":"","useruid":""}',
+            'sq':'{"'+$('#sel_button_sq').attr('sqtext')+'":"'+_sv+'","brand_cat_ids":"'+_bids+'","brand_status":"'+_brandstatus+'"}',
+            //'sq':'',
+            'brand_search_params':_sp,
+
+
+            'ipage':CURRPAGE-1,
+            'ipage_size':PAGE_SIZE,
+            'search_type':1
+
+
+        },
+        function(dat) {
+            //alert(JSON.stringify(dat));
+            $('#txt_search').attr('search_stat','0'); //防止重复
+
+            $('#div_loading_img').hide();
+
+            if (dat.stdresp.status==0)
+            {
+                alert(dat.stdresp.errmsg);
+                return;
+            }
+
+
+            $('#resp_div').show()
+            $('#result_count').text(dat.resp.icount);
+
+
+            for(var i=0;i<dat.resp.result.length;i++)
+            {
+
+                _t = dat.resp.result[i];
+                RETDATA[_t.prod_id] = _t;
+                $('#resp_div_main table tbody').append($('<tr prod_id="'+_t.prod_id+'"><th scope="row">'+_t.brand_cat_ids+'</th><td>'+_t.prod_name+'</td></tr>'));
+            }
+
+            //bind,event
+            $('#resp_div_main table tbody tr').bind("click",function(){
+                var _tr = $(this);
+                var _prod_id = _tr.attr('prod_id');
+                var _prod = RETDATA[_prod_id];
+
+
+                //alert(_prod);
+
+                if(_prod!=undefined)
+                {
+                  $('#div_brand_detail').show();
+
+                  $('#div_brand_img img').attr('src','http://ipinfo.gbicom.com:8080/web/showimage.aspx?int_reg_id='+_prod.prod_id);
+                  $('#td_brand_cat_ids').text(_prod.brand_cat_ids);
+                  $('#td_prod_id').text(_prod.prod_id);
+                  $('#td_prod_name').text(_prod.prod_name);
+                  $('#td_prod_pinyin').text(_prod.prod_pinyin);
+                  $('#td_date_app_at').text(_prod.date_app_at);
+                  $('#td_date_reg_pub').text(_prod.date_reg_pub);
+                  $('#td_date_exclusive_end').text(_prod.date_exclusive_end);
+                  $('#td_reg_org_name_cn').text(_prod.reg_org_name_cn);
+                  $('#td_reg_org_addr_cn').text(_prod.reg_org_addr_cn);
+                  $('#td_brand_target_list').text(_prod.brand_target_list);
+                  $('#td_remark').text(_prod.remark);
+                  $('#td_agent_name').text(_prod.agent_name);
+                  $('#td_law_status').text(LAW_STATUS_DIC[_prod.law_status]);
+
+                }
+
+            });
+
+            //分页; 5+...
+            ALLPAGES = dat.resp.ipage_count;
+            var firstpage = CURRPAGE-2>0?CURRPAGE-2:1;
+
+            movepages(firstpage);
+
+        }
+    );
+ }
+
+     function getCookie(name) {
+        var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+        return r ? r[1] : undefined;
+    }
+
+    function page_get_curr(_ipage)
+    {
+      CURRPAGE = _ipage;
+      aaa();
+
+    }
+
+    function page_move_prev()
+    {
+      FIRST_PAGE -=5;
+      FIRST_PAGE=FIRST_PAGE<=0?1:FIRST_PAGE;
+      movepages(FIRST_PAGE);
+    }
+
+    function page_move_next()
+    {
+      FIRST_PAGE +=5;
+      FIRST_PAGE=FIRST_PAGE>ALLPAGES?ALLPAGES:FIRST_PAGE;
+      movepages(FIRST_PAGE);
+    }
+
+
+    function movepages(firstpage)
+    {
+
+            var lastpage = ALLPAGES;
+            FIRST_PAGE= firstpage;
+
+            //alert(lastpage);
+
+            $('#ul_pages').empty();
+
+            var page_prev = $('<li><a href="javascript:page_move_prev()" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>');
+            var page_next= $('<li><a href="javascript:page_move_next()" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>');
+
+
+
+
+            if(firstpage>1)
+            {
+                $('#ul_pages').append(page_prev);
+            }
+
+            for(i=0;i<((lastpage-firstpage)>5?5:(lastpage-firstpage));i++)
+            {
+                if (CURRPAGE ==(firstpage+i))
+                {
+                  $('#ul_pages').append($('<li><a href="javascript:page_get_curr(\''+(firstpage+i)+'\')" style="color:red"><b>'+(firstpage+i)+'</b></a></li>'))
+                }
+                else
+                {
+                $('#ul_pages').append($('<li><a href="javascript:page_get_curr(\''+(firstpage+i)+'\')">'+(firstpage+i)+'</a></li>'))
+                }
+            }
+
+
+            if(lastpage>firstpage+5+1)
+            {
+              $('#ul_pages').append($('<li><a href="#">...</a></li>'))
+              $('#ul_pages').append($('<li><a href="javascript:page_get_curr(\''+(lastpage)+'\')">'+(lastpage)+'</a></li>'))
+              $('#ul_pages').append(page_next);
+            }
+
+    }
+</script>
